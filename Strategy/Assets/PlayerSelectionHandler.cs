@@ -32,6 +32,7 @@ public class PlayerSelectionHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            ResetSelection();
             LeftMouseButtonDown = true;
             SaveLastClickPos();
             HandleLeftMouseButton();
@@ -74,15 +75,15 @@ public class PlayerSelectionHandler : MonoBehaviour
                 _CurrentSelectedCharacters.Add(selectedCharacter);
             }
         }
-        else
+    }
+
+    private void ResetSelection()
+    {
+        foreach (Character character in _CurrentSelectedCharacters)
         {
-            //Nothing selected so deselect all
-            foreach (Character character in _CurrentSelectedCharacters)
-            {
-                GraphicsHandler.DeselectCharacter(character);
-            }
-            _CurrentSelectedCharacters.Clear();
+            GraphicsHandler.DeselectCharacter(character);
         }
+        _CurrentSelectedCharacters.Clear();
     }
 
     private void HandleRightMouseButton()
@@ -93,5 +94,4 @@ public class PlayerSelectionHandler : MonoBehaviour
             movementHandler.MoveAllSelectedUnits(Destination);
         }
     }
-
 }
