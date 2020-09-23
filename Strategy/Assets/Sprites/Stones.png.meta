@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 6898035379108858973
     second: Stones_1
+  - first:
+      213: -8868248462342347919
+    second: Stones_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -107,12 +110,12 @@ TextureImporter:
       name: Stones_0
       rect:
         serializedVersion: 2
-        x: 624
-        y: 1726
-        width: 615
-        height: 349
+        x: 0
+        y: 0
+        width: 1458
+        height: 802
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +131,12 @@ TextureImporter:
       name: Stones_1
       rect:
         serializedVersion: 2
-        x: 2329
-        y: 1657
-        width: 777
-        height: 442
+        x: 0
+        y: 1012
+        width: 1459
+        height: 752
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,6 +144,27 @@ TextureImporter:
       bones: []
       spriteID: d5c4cd341aebabf50800000000000000
       internalID: 6898035379108858973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stones_2
+      rect:
+        serializedVersion: 2
+        x: 1619
+        y: 1039
+        width: 1301
+        height: 725
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1732e2e6207ade480800000000000000
+      internalID: -8868248462342347919
       vertices: []
       indices: 
       edges: []

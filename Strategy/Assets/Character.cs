@@ -75,18 +75,19 @@ public class Character : MonoBehaviour
     private void SelectedChanged(bool newValue)
     {
         selected = newValue;
-
-        if (selected)
+        if (SelectedSprite != null)
         {
-            //select
-            SelectedSprite.enabled = true;
+            if (selected)
+            {
+                //select
+                SelectedSprite.enabled = true;
+            }
+            else
+            {
+                //deselect
+                SelectedSprite.enabled = false;
+            }
         }
-        else
-        {
-            //deselect
-            SelectedSprite.enabled = false;
-        }
-
     }
 
     public bool Selected { get => selected; 

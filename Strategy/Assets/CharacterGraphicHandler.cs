@@ -2,11 +2,17 @@
 {
     public void SelectCharacter(Character characterToSelect)
     {
-        characterToSelect.Selected = true;
+        if (characterToSelect != null)
+        {
+            characterToSelect.Selected = true;
+        }
     }
 
     public void DeselectCharacter(Character characterToDeSelect)
     {
-        characterToDeSelect.Selected = false;
+        if (characterToDeSelect != null)
+        {
+            characterToDeSelect.Selected = false ;
+        }
     }
 }

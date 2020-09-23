@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stepTimer: 1
-  stepSize: 3
+  stepSize: 2
   SelectedSprite: {fileID: 3073870700684399486}
   movementIndicator: {fileID: 5923600099878602022, guid: 6c0c7da26b1979f47a006249eb88efcd,
     type: 3}

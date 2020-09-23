@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 912759133326233211}
   - component: {fileID: 4423919276753784395}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32109d51b50df79459e7a300968011c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpawnTimer: 10
+  Soldier: {fileID: 3073870699992517522, guid: f1b57845f8620844481ddfc68d044e6e, type: 3}
 --- !u!1 &1249593366204933254
 GameObject:
   m_ObjectHideFlags: 0
