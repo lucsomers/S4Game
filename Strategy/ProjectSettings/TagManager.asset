@@ -11,6 +11,8 @@ TagManager:
   - Village
   - Miner
   - WoodCutter
+  - Smith
+  - Tower
   layers:
   - Default
   - TransparentFX

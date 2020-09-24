@@ -51,7 +51,7 @@ public class OrkMovement : MonoBehaviour
         {
             foreach (Collider2D collider in colliders)
             {
-                if (collider.CompareTag("Village") || collider.CompareTag("Miner") || collider.CompareTag("WoodCutter"))
+                if (collider.CompareTag("Village") || collider.CompareTag("Miner") || collider.CompareTag("WoodCutter") || collider.CompareTag("Tower") || collider.CompareTag("Smith"))
                 {
                     SetDestination(collider.transform.position);
                 }

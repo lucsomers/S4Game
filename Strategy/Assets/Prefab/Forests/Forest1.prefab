@@ -306,7 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e35bffd4b049f040b217764be9ffd0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeToChop: 8
+  TimeToChop: 4
+  AmountInPool: 10
   CollectionNumber: {fileID: 2592681388324439914, guid: fc83ff3d75b734b4986721bd33ee77a5,
     type: 3}
   CollectionNumberSpawnPoint: {fileID: 6816667714361952397}

@@ -21,6 +21,8 @@ public class SmithHandler : MonoBehaviour
 
                     Destroy(collision.gameObject);
 
+                    PayCost();
+
                     GameObject tempUpgradedSquire = Instantiate(UpgradedSquire);
                     tempUpgradedSquire.transform.position = spawnPos;
                 }

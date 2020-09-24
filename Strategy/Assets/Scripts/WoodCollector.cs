@@ -5,6 +5,7 @@ using UnityEngine;
 public class WoodCollector : MonoBehaviour
 {
     [SerializeField] private float TimeToChop;
+    [SerializeField] private float AmountInPool;
     [Header("Collection Number")]
     [SerializeField] private GameObject CollectionNumber;
     [SerializeField] private Transform CollectionNumberSpawnPoint;
@@ -34,6 +35,11 @@ public class WoodCollector : MonoBehaviour
             //reset timer
             ResetTimer();
         }
+
+        if (AmountInPool <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void CollectWood()
@@ -41,6 +47,8 @@ public class WoodCollector : MonoBehaviour
         //Create floating number
         GameObject tempCollectionNumber = Instantiate(CollectionNumber);
         tempCollectionNumber.transform.position = CollectionNumberSpawnPoint.position;
+
+        AmountInPool -= 1;
 
         //Up the amount of wood
         ResourceManager.resources.AddWood(1);
