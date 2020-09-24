@@ -9,6 +9,9 @@ public class Character : MonoBehaviour
     [SerializeField] private float stepSize;
     [SerializeField] private SpriteRenderer SelectedSprite;
     [SerializeField] private GameObject movementIndicator;
+    [SerializeField] private GameObject knightHealthBar;
+
+    public bool IsKnight;
 
     private Animator animator;
 
@@ -19,9 +22,17 @@ public class Character : MonoBehaviour
 
     private GameObject CurrentMovementIndicator;
 
+    private float currentHitPoints = 0;
+    private float MaxHitPoints = 3;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
+        
+        if (IsKnight)
+        {
+            currentHitPoints = MaxHitPoints;
+        }
     }
 
     public void StartMove(Vector2 newDestination)
@@ -35,7 +46,10 @@ public class Character : MonoBehaviour
 
     private void SetWalkAnimation(bool isMoving)
     {
-        animator.SetBool("Move", isMoving);
+        if (animator != null)
+        {
+            animator.SetBool("Move", isMoving);
+        }
     }
 
     private void CreateMovementIndicatorPos(Vector2 pos)
@@ -92,6 +106,26 @@ public class Character : MonoBehaviour
                 //deselect
                 SelectedSprite.enabled = false;
             }
+        }
+    }
+
+    public void HealthDown(int value)
+    {
+        if (currentHitPoints > value)
+        {
+            currentHitPoints -= value;
+            knightHealthBar.transform.localScale = new Vector3(
+                knightHealthBar.transform.localScale.x / MaxHitPoints * currentHitPoints,
+                knightHealthBar.transform.localScale.y);
+        }
+        else
+        {
+            currentHitPoints = 0;
+        }
+
+        if (currentHitPoints == 0)
+        {
+            Destroy(gameObject);
         }
     }
 

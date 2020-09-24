@@ -6,6 +6,7 @@ public class VillageSpawner : MonoBehaviour
 {
     [SerializeField] private float SpawnTimer = 0;
     [SerializeField] private GameObject Soldier;
+    [SerializeField] private Transform Destination;
 
     private float currentTimeOnTimer;
 
@@ -26,5 +27,7 @@ public class VillageSpawner : MonoBehaviour
         GameObject tempSoldier = Instantiate(Soldier);
 
         tempSoldier.transform.position = transform.position;
+        Character tempCharacter = tempSoldier.GetComponent<Character>();
+        tempCharacter.StartMove(Destination.position);
     }
 }

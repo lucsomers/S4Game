@@ -59,6 +59,8 @@ public class StoneCollector : MonoBehaviour
         if (collision.CompareTag("Character"))
         {
             collision.GetComponent<Character>().SetKeepMoving(false);
+            ActionHandler action = collision.GetComponentInChildren<ActionHandler>();
+            action.StartChopStone();
         }
     }
 
@@ -67,6 +69,8 @@ public class StoneCollector : MonoBehaviour
         if (collision.CompareTag("Character"))
         {
             characterInRange = false;
+            ActionHandler action = collision.GetComponentInChildren<ActionHandler>();
+            action.EndChopStone();
         }
     }
 

@@ -59,6 +59,8 @@ public class WoodCollector : MonoBehaviour
         if (collision.CompareTag("Character"))
         {
             characterInRange = false;
+            ActionHandler action = collision.GetComponentInChildren<ActionHandler>();
+            action.EndChopWood();
         }
     }
 
@@ -67,6 +69,8 @@ public class WoodCollector : MonoBehaviour
         if (collision.CompareTag("Character"))
         {
             collision.GetComponent<Character>().SetKeepMoving(false);
+            ActionHandler action = collision.GetComponentInChildren<ActionHandler>();
+            action.StartChopWood();
         }
     }
 

@@ -63,16 +63,24 @@ public class OrkMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Character"))
         {
-            //Kill both
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
+            Character tempCharacter = collision.collider.GetComponent<Character>();
 
-            //spawn particles on both
-            GameObject tempBloodParticles = Instantiate(BloodParticles);
-            tempBloodParticles.transform.position = transform.position;
+            if (!tempCharacter.IsKnight)
+            {
+                Destroy(collision.gameObject);
+            }
+            else
+            {
+                tempCharacter.HealthDown(1);
+            }
 
             GameObject tempBloodParticlesCharacter = Instantiate(BloodParticles);
             tempBloodParticlesCharacter.transform.position = collision.transform.position;
+            
+            GameObject tempBloodParticles = Instantiate(BloodParticles);
+            tempBloodParticles.transform.position = transform.position;
+
+            Destroy(gameObject);
         }
     }
 
