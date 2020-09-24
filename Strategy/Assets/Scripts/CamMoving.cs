@@ -49,4 +49,12 @@ public class CamMoving : MonoBehaviour
             cam.orthographicSize -= zoomSpeed;
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(new Vector3(maxLeft - 18, maxUp + 11), new Vector3(maxRight + 18, maxUp + 11));
+        Gizmos.DrawLine(new Vector3(maxLeft - 18, maxDown - 11), new Vector3(maxRight + 18, maxDown - 11));
+        Gizmos.DrawLine(new Vector3(maxLeft - 18, maxUp + 11), new Vector3(maxLeft - 18, maxDown - 11));
+        Gizmos.DrawLine(new Vector3(maxRight + 18, maxUp + 11), new Vector3(maxRight + 18, maxDown - 11));
+    }
 }

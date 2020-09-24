@@ -12,21 +12,6 @@ public class PointCollector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Character"))
-        {
-            Vector3 spawnPos = collision.transform.position;
-
-            Destroy(collision.gameObject);
-
-            GameObject blood = Instantiate(deadParticles);
-            blood.transform.position = spawnPos;
-
-            GameObject number = Instantiate(CollectionNumber);
-            number.transform.position = CollectionNumberSpawnPoint.position;
-
-            ResourceManager.resources.AddPoints(1);
-        }
-
         if (collision.CompareTag("Ork"))
         {
             PlayerPrefs.SetInt("Score", ResourceManager.resources.CurrentAmountOfPoints);
