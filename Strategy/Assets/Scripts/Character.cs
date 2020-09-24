@@ -72,6 +72,11 @@ public class Character : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void SetKeepMoving(bool value)
+    {
+        KeepMoving = value;
+    }
+
     private void SelectedChanged(bool newValue)
     {
         selected = newValue;

@@ -8,10 +8,10 @@ public class Builder : MonoBehaviour
 {
     [SerializeField] GameObject bluePrint;
 
-    private int WoodCost = 10;
-    private int StoneCost = 10;
+    [SerializeField] private int WoodCost = 10;
+    [SerializeField] private int StoneCost = 10;
 
-    private int IncrementStep = 10;
+    [SerializeField] private int IncrementStep = 10;
 
     private void Start()
     {

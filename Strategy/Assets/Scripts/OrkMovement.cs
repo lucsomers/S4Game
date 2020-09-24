@@ -8,6 +8,7 @@ public class OrkMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float stepTimer;
     [SerializeField] private float stepSize;
+    [SerializeField] private float detectionRadius;
 
     private Vector2 destination;
 
@@ -35,6 +36,26 @@ public class OrkMovement : MonoBehaviour
             {
                 currentStepTime += Time.deltaTime;
             }
+
+            CheckForVillage();
+        }
+
+        
+    }
+
+    private void CheckForVillage()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
+
+        if (colliders.Length > 0)
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Village") || collider.CompareTag("Miner") || collider.CompareTag("WoodCutter"))
+                {
+                    SetDestination(collider.transform.position);
+                }
+            }
         }
     }
 
@@ -53,5 +74,10 @@ public class OrkMovement : MonoBehaviour
             GameObject tempBloodParticlesCharacter = Instantiate(BloodParticles);
             tempBloodParticlesCharacter.transform.position = collision.transform.position;
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }

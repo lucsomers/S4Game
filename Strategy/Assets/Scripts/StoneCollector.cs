@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WoodCollector : MonoBehaviour
+public class StoneCollector : MonoBehaviour
 {
     [SerializeField] private float TimeToChop;
     [Header("Collection Number")]
@@ -17,7 +17,7 @@ public class WoodCollector : MonoBehaviour
     {
         if (characterInRange)
         {
-            //there is a character in range to chop wood
+            //there is a character in range to chop stone
             if (TimeToChop > currentTimeChopping)
             {
                 //Keep chopping
@@ -25,8 +25,8 @@ public class WoodCollector : MonoBehaviour
             }
             else
             {
-                //CollectWood
-                CollectWood();
+                //CollectStone
+                CollectStone();
             }
         }
         else
@@ -36,14 +36,14 @@ public class WoodCollector : MonoBehaviour
         }
     }
 
-    private void CollectWood()
+    private void CollectStone()
     {
         //Create floating number
         GameObject tempCollectionNumber = Instantiate(CollectionNumber);
         tempCollectionNumber.transform.position = CollectionNumberSpawnPoint.position;
 
-        //Up the amount of wood
-        ResourceManager.resources.AddWood(1);
+        //Up the amount of Stone
+        ResourceManager.resources.AddStone(1);
 
         //Reset timer
         ResetTimer();
@@ -52,6 +52,14 @@ public class WoodCollector : MonoBehaviour
     private void ResetTimer()
     {
         currentTimeChopping = 0;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Character"))
+        {
+            collision.GetComponent<Character>().SetKeepMoving(false);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

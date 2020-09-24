@@ -8,7 +8,10 @@ public class CharacterMovementHandler
     {
         foreach (Character character in PlayerSelectionHandler._CurrentSelectedCharacters)
         {
-            character.StartMove(positionToMoveTo);
+            if (character != null)
+            {
+                character.StartMove(positionToMoveTo);
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ public class PlayerSelectionHandler : MonoBehaviour
     #endregion
 
     [SerializeField] private Camera cam;
+    [SerializeField] private Transform selectionAreaTransform;
 
     private bool LeftMouseButtonDown = false;
     private bool RightMouseButtonDown = false;
@@ -32,27 +33,81 @@ public class PlayerSelectionHandler : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            ResetSelection();
+            //left button is pressed
             LeftMouseButtonDown = true;
             SaveLastClickPos();
-            HandleLeftMouseButton();
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            CreateSelectionArea();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            RightMouseButtonDown = true;
+            //right button is pressed
             SaveLastClickPos();
+            RightMouseButtonDown = true;
             HandleRightMouseButton();
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            ResetSelection();
             LeftMouseButtonDown = false;
+            HandleLeftButtonUp();
         }
 
         if (Input.GetMouseButtonUp(1))
         {
             RightMouseButtonDown = false;
+        }
+
+        if (LeftMouseButtonDown)
+        {
+            selectionAreaTransform.gameObject.SetActive(true);
+        }
+        else
+        {
+            selectionAreaTransform.gameObject.SetActive(false);
+        }
+    }
+
+    private void CreateSelectionArea()
+    {
+        //calculate lower left pos
+        Vector3 CurrentMousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 lowerLeft = new Vector3(
+                Mathf.Min(lastClickMousePos.x, CurrentMousePos.x),
+                Mathf.Min(lastClickMousePos.y, CurrentMousePos.y)
+            );
+
+        //calculate upperright pos
+        Vector3 upperRight = new Vector3(
+                Mathf.Max(lastClickMousePos.x, CurrentMousePos.x),
+                Mathf.Max(lastClickMousePos.y, CurrentMousePos.y)
+            );
+
+        selectionAreaTransform.position = lowerLeft;
+        selectionAreaTransform.localScale = upperRight - lowerLeft;
+    }
+
+    private void HandleLeftButtonUp()
+    {
+        Collider2D[] colliders = Physics2D.OverlapAreaAll(lastClickMousePos, cam.ScreenToWorldPoint(Input.mousePosition));
+
+        if (colliders.Length > 0)
+        {
+            foreach (Collider2D collider in colliders)
+            {
+                Character selectedCharacter = collider.GetComponentInParent<Character>();
+
+                if (selectedCharacter != null)
+                {
+                    GraphicsHandler.SelectCharacter(selectedCharacter);
+                    _CurrentSelectedCharacters.Add(selectedCharacter);
+                }
+            }
         }
     }
 
@@ -60,21 +115,6 @@ public class PlayerSelectionHandler : MonoBehaviour
     {
         lastClickMousePos = Input.mousePosition;
         lastClickMousePos = cam.ScreenToWorldPoint(lastClickMousePos);
-    }
-
-    private void HandleLeftMouseButton()
-    {
-        Collider2D[] colliders = Physics2D.OverlapAreaAll(lastClickMousePos, lastClickMousePos);
-
-        if (colliders.Length > 0)
-        {
-            foreach (Collider2D collider in colliders)
-            {
-                Character selectedCharacter = collider.GetComponentInParent<Character>();
-                GraphicsHandler.SelectCharacter(selectedCharacter);
-                _CurrentSelectedCharacters.Add(selectedCharacter);
-            }
-        }
     }
 
     private void ResetSelection()

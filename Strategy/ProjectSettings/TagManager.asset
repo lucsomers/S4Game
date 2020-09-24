@@ -7,6 +7,10 @@ TagManager:
   - Character
   - Church
   - Ork
+  - Tree
+  - Village
+  - Miner
+  - WoodCutter
   layers:
   - Default
   - TransparentFX
