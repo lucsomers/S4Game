@@ -7,14 +7,17 @@ public class EnemySpawner : MonoBehaviour
 {
     #region singleton
 
-    public static EnemySpawner spawner;
+    public static EnemySpawner _instance;
 
-    private void Start()
+    private void Awake()
     {
-        if (spawner == null)
+        if (_instance != null && _instance != this)
         {
-            spawner = new EnemySpawner();
-            CaveCounter = currentSpawnPoints.Count;
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
         }
     }
 
@@ -34,6 +37,11 @@ public class EnemySpawner : MonoBehaviour
     private float currentSpeedupTimer = 0;
 
     private List<GoblinCaveHealth> currentSpawnPoints = new List<GoblinCaveHealth>();
+
+    private void Start()
+    {
+        UpdateSpawnList();
+    }
 
     // Update is called once per frame
     void Update()
@@ -69,7 +77,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnOrk()
     {
-        int randomInt = Random.Range(0,currentSpawnPoints.Count);
+        int randomInt = Random.Range(0, currentSpawnPoints.Count);
 
         GameObject ork = Instantiate(enemy);
         
@@ -82,17 +90,16 @@ public class EnemySpawner : MonoBehaviour
 
     public void UpdateSpawnList()
     {
-        CaveCounter = 0;
-
         foreach (Transform point in spawnLocations)
         {
             GoblinCaveHealth tempCave = point.GetComponent<GoblinCaveHealth>();
             if (!tempCave.IsDestroyed)
             {
                 currentSpawnPoints.Add(tempCave);
-                CaveCounter++;
             }
         }
+
+        CaveCounter = currentSpawnPoints.Count;
 
         if (CaveCounter == 0)
         {
