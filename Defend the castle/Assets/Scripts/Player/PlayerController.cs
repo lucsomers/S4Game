@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header("Stats")]
-    [SerializeField] private float moveSpeed = 6;
-    [SerializeField] private float diagnalMovementLimiter = 0.7f;
     [Header("Link")]
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody2D rigidBody;
@@ -24,6 +21,8 @@ public class PlayerController : MonoBehaviour
         playerCollision = GetComponentInChildren<PlayerCollision>();
         playerAttack = GetComponentInChildren<PlayerAttack>();
         playerClass = GetComponentInChildren<PlayerClass>();
+
+        // moveSpeed = playerClass.CurrentPlayerClass.MoveSpeed;
     }
 
     public PlayerMovement PlayerMovement { get => playerMovement; private set => playerMovement = value; }
@@ -32,7 +31,5 @@ public class PlayerController : MonoBehaviour
     public PlayerAttack PlayerAttack { get => playerAttack; private set => playerAttack = value; }
     public Camera Cam { get => cam; private set => cam = value; }
     public Rigidbody2D RigidBody { get => rigidBody; private set => rigidBody = value; }
-    public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
-    public float DiagnalMovementLimiter { get => diagnalMovementLimiter; private set => diagnalMovementLimiter = value; }
     public PlayerClass PlayerClass { get => playerClass; private set => playerClass = value; }
 }
