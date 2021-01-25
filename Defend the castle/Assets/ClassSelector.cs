@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClassSelector : MonoBehaviour
 {
@@ -9,23 +10,30 @@ public class ClassSelector : MonoBehaviour
     [SerializeField] private List<ClassStats> availableClassStats = new List<ClassStats>();
 
     [Header("Main")]
-    [SerializeField] private SpriteRenderer classImage;
+    [SerializeField] private Image classImage;
     [SerializeField] private TMP_Text classNameTextField;
+    [SerializeField] private TMP_Text classDescriptionField;
 
     [Header("Ability names")]
     [SerializeField] private TMP_Text Ability1NameTextField;
     [SerializeField] private TMP_Text Ability2NameTextField;
     [SerializeField] private TMP_Text Ability3NameTextField;
+    [SerializeField] private TMP_Text AbilityPrimaryNameTextField;
+    [SerializeField] private TMP_Text AbilitySecondaryNameTextField;
 
     [Header("Ability Description")]
     [SerializeField] private TMP_Text Ability1DescriptionTextField;
     [SerializeField] private TMP_Text Ability2DescriptionTextField;
     [SerializeField] private TMP_Text Ability3DescriptionTextField;
+    [SerializeField] private TMP_Text AbilityPrimaryDescriptionTextField;
+    [SerializeField] private TMP_Text AbilitySecondaryDescriptionTextField;
 
     [Header("Ability icons")]
-    [SerializeField] private SpriteRenderer Ability1Icon;
-    [SerializeField] private SpriteRenderer Ability2Icon;
-    [SerializeField] private SpriteRenderer Ability3Icon;
+    [SerializeField] private Image Ability1Icon;
+    [SerializeField] private Image Ability2Icon;
+    [SerializeField] private Image Ability3Icon;
+    [SerializeField] private Image AbilityPrimaryIcon;
+    [SerializeField] private Image AbilitySecondaryIcon;
 
     private int currentClassIndex = 0;
     private int lastIndexInList = 0;
@@ -33,6 +41,7 @@ public class ClassSelector : MonoBehaviour
     private void Start()
     {
         lastIndexInList = availableClassStats.Count - 1;
+        UpdateSelectedClass();
     }
 
     public void PreviousClass()
@@ -65,18 +74,25 @@ public class ClassSelector : MonoBehaviour
 
         classImage.sprite = stats.CharacterSprite;
 
-        classNameTextField.text = stats.ClassName;
+        classNameTextField.SetText(stats.ClassName);
+        classDescriptionField.SetText(stats.ClassInfo);
 
-        Ability1NameTextField.text = stats.Ability1.AbilityName;
-        Ability2NameTextField.text = stats.Ability2.AbilityName;
-        Ability3NameTextField.text = stats.Ability3.AbilityName;
+        Ability1NameTextField.SetText(stats.Ability1.AbilityName);
+        Ability2NameTextField.SetText(stats.Ability2.AbilityName);
+        Ability3NameTextField.SetText(stats.Ability3.AbilityName);
+        AbilityPrimaryNameTextField.SetText(stats.PrimaryAttack.AbilityName);
+        AbilitySecondaryNameTextField.SetText(stats.SecondaryAttack.AbilityName);
 
-        Ability1DescriptionTextField.text = stats.Ability1.AbilityDescription;
-        Ability2DescriptionTextField.text = stats.Ability2.AbilityDescription;
-        Ability3DescriptionTextField.text = stats.Ability3.AbilityDescription;
+        Ability1DescriptionTextField.SetText(stats.Ability1.AbilityDescription);
+        Ability2DescriptionTextField.SetText(stats.Ability2.AbilityDescription);
+        Ability3DescriptionTextField.SetText(stats.Ability3.AbilityDescription);
+        AbilityPrimaryDescriptionTextField.SetText(stats.PrimaryAttack.AbilityDescription);
+        AbilitySecondaryDescriptionTextField.SetText(stats.SecondaryAttack.AbilityDescription);
 
         Ability1Icon.sprite = stats.Ability1.Icon;
         Ability2Icon.sprite = stats.Ability2.Icon;
         Ability3Icon.sprite = stats.Ability3.Icon;
+        AbilityPrimaryIcon.sprite = stats.PrimaryAttack.Icon;
+        AbilitySecondaryIcon.sprite = stats.SecondaryAttack.Icon;
     }
 }

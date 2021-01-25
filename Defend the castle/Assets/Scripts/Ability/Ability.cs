@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public abstract class Ability : MonoBehaviour
+public class Ability : MonoBehaviour
 {
     private AbilityStats stats;
 
@@ -15,6 +15,15 @@ public abstract class Ability : MonoBehaviour
     public Sprite Icon;
 
     private float currentCooldown;
+
+    public Ability(AbilityStats stats)
+    {
+        this.stats = stats;
+        AbilityName = stats.AbilityName;
+        AbilityDescription = stats.AbilityDescription;
+        Cooldown = stats.Cooldown;
+        Icon = stats.Icon;
+    }
 
     public virtual void HandleAbility()
     {

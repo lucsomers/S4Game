@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[CreateAssetMenu(fileName = "New ClassInfo", menuName = "New ClassInfo")]
 public class ClassStats : ScriptableObject
 {
     [Header("String info")]
@@ -10,11 +11,11 @@ public class ClassStats : ScriptableObject
     [SerializeField] private float attackSpeed;
     [SerializeField] private float moveSpeed;
     [Header("Abilities")]
-    [SerializeField] private Ability ability1;
-    [SerializeField] private Ability ability2;
-    [SerializeField] private Ability ability3;
-    [SerializeField] private Ability primaryAttack;
-    [SerializeField] private Ability secondaryAttack;
+    [SerializeField] private AbilityStats ability1;
+    [SerializeField] private AbilityStats ability2;
+    [SerializeField] private AbilityStats ability3;
+    [SerializeField] private AbilityStats primaryAttack;
+    [SerializeField] private AbilityStats secondaryAttack;
     [Header("Image")]
     [SerializeField] private Sprite characterSprite;
 
@@ -23,10 +24,10 @@ public class ClassStats : ScriptableObject
     public string ClassTag { get => classTag; private set => classTag = value; }
     public float AttackSpeed { get => attackSpeed; private set => attackSpeed = value; }
     public float MoveSpeed { get => moveSpeed; private set => moveSpeed = value; }
-    public Ability Ability1 { get => ability1; private set => ability1 = value; }
-    public Ability Ability2 { get => ability2; private set => ability2 = value; }
-    public Ability Ability3 { get => ability3; private set => ability3 = value; }
+    public AbilityStats Ability1 { get => ability1; private set => ability1 = value; }
+    public AbilityStats Ability2 { get => ability2; private set => ability2 = value; }
+    public AbilityStats Ability3 { get => ability3; private set => ability3 = value; }
+    public AbilityStats PrimaryAttack { get => primaryAttack; private set => primaryAttack = value; }
+    public AbilityStats SecondaryAttack { get => secondaryAttack; private set => secondaryAttack = value; }
     public Sprite CharacterSprite { get => characterSprite; private set => characterSprite = value; }
-    public Ability PrimaryAttack { get => primaryAttack; private set => primaryAttack = value; }
-    public Ability SecondaryAttack { get => secondaryAttack; private set => secondaryAttack = value; }
 }

@@ -19,7 +19,8 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
 
         body = playerController.RigidBody;
-        movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
+        movespeed = 80;
+       // movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
     }
 
     private void Update()

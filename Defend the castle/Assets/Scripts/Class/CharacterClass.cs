@@ -17,12 +17,12 @@ public abstract class CharacterClass : MonoBehaviour
 
     private void Start()
     {
-        Ability1 = classStats.Ability1;
-        Ability2 = classStats.Ability2;
-        Ability3 = classStats.Ability3;
+        Ability1 = new Ability(classStats.Ability1);
+        Ability2 = new Ability(classStats.Ability2);
+        Ability3 = new Ability(classStats.Ability3);
         AttackSpeed = classStats.AttackSpeed;
         MoveSpeed = classStats.MoveSpeed;
-        PrimaryAttack = classStats.PrimaryAttack;
-        SecondaryAttack = classStats.SecondaryAttack;
+        PrimaryAttack = new Ability(classStats.PrimaryAttack);
+        SecondaryAttack = new Ability(classStats.SecondaryAttack);
     }
 }

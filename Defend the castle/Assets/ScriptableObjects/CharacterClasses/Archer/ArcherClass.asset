@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb0fa0e56f72704bab6e9f1bee6e11b, type: 3}
+  m_Name: ArcherClass
+  m_EditorClassIdentifier: 
+  className: Archer
+  classInfo: An class that uses range and speed to outsmart his opponents. It has
+    low health but great range.
+  classTag: Archer
+  attackSpeed: 1
+  moveSpeed: 80
+  ability1: {fileID: 11400000, guid: bc8a581324293c146bd4fc42b291d33a, type: 2}
+  ability2: {fileID: 11400000, guid: 215c9f625160a43468ca090a8c26c7ec, type: 2}
+  ability3: {fileID: 11400000, guid: 758eb759345e96a43a82a871dd68cfa4, type: 2}
+  primaryAttack: {fileID: 11400000, guid: 403631a5cc18fee428f844c544e62e3a, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: 7e495b810e145d74fa709ea27c8bbbf0, type: 2}
+  characterSprite: {fileID: 21300000, guid: 561a26092fa218f479a39c34d1925812, type: 3}
