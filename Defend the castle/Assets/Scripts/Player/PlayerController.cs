@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         playerInput = GetComponentInChildren<PlayerInput>();
         playerCollision = GetComponentInChildren<PlayerCollision>();
         playerAttack = GetComponentInChildren<PlayerAttack>();
+        playerClass = GetComponentInChildren<PlayerClass>();
     }
 
     public PlayerMovement PlayerMovement { get => playerMovement; private set => playerMovement = value; }
