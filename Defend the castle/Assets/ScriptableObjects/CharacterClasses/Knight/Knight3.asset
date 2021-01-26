@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Cheat death
   abilityDescription: Become unkillable for a certain amount of time.
+  abilityLetter: 2
   cooldown: 0
   icon: {fileID: 21300000, guid: 0eba6ece953f1f142b7905ffaf0e7395, type: 3}

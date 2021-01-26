@@ -1,31 +1,13 @@
 ﻿using System;
 using UnityEngine;
 
-public class Ability : MonoBehaviour
+public abstract class Ability : MonoBehaviour
 {
-    private AbilityStats stats;
-
-    [HideInInspector]
-    public string AbilityName;
-    [HideInInspector]
-    public string AbilityDescription;
-    [HideInInspector]
-    public float Cooldown;
-    [HideInInspector]
-    public Sprite Icon;
+    [SerializeField] private AbilityStats stats;
 
     private float currentCooldown;
 
-    public Ability(AbilityStats stats)
-    {
-        this.stats = stats;
-        AbilityName = stats.AbilityName;
-        AbilityDescription = stats.AbilityDescription;
-        Cooldown = stats.Cooldown;
-        Icon = stats.Icon;
-    }
-
-    public virtual void HandleAbility()
+    public virtual void HandleAbility(PlayerController player)
     {
         StartCooldown();
     }
@@ -37,7 +19,7 @@ public class Ability : MonoBehaviour
 
     private void StartCooldown()
     {
-        currentCooldown = Cooldown;
+        currentCooldown = stats.Cooldown;
     }
 
     private void UpdateCooldown()
@@ -51,4 +33,5 @@ public class Ability : MonoBehaviour
     }
 
     public float CurrentCooldown { get => currentCooldown; private set => currentCooldown = value; }
+    public AbilityStats Stats { get => stats; private set => stats = value; }
 }

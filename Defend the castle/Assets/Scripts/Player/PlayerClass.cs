@@ -2,7 +2,16 @@
 
 public class PlayerClass : MonoBehaviour
 {
-    private CharacterClass currentPlayerClass;
+    [SerializeField] private CharacterClass currentPlayerClass;
+    
+    private PlayerController playerController;
+
+    private void Awake()
+    {
+        playerController = GetComponentInParent<PlayerController>();
+
+        currentPlayerClass = playerController.StartClass;
+    }
 
     public void ChangePlayerClass(CharacterClass newClass)
     {

@@ -15,5 +15,6 @@ MonoBehaviour:
   abilityName: Inferno bomb
   abilityDescription: Throw out an inferno bomb that leaves a damaging zone at the
     end
+  abilityLetter: 2
   cooldown: 0
   icon: {fileID: 21300000, guid: afb7b1838045e1c478806acb7304b019, type: 3}

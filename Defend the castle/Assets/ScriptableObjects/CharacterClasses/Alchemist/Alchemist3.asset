@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Unstable
   abilityDescription: Fire out a shock that chains through enemies.
+  abilityLetter: 2
   cooldown: 0
   icon: {fileID: 21300000, guid: db880dc8b1d01eb43a773c1e0ca0e660, type: 3}

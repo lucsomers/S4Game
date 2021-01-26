@@ -15,5 +15,6 @@ MonoBehaviour:
   abilityName: Shields up
   abilityDescription: Defend in the direction of the mouse blocking projectiles hitting
     you
+  abilityLetter: 4
   cooldown: 0
   icon: {fileID: 21300000, guid: c45ae9eeabed9aa4e9fa2c12cf0954c4, type: 3}

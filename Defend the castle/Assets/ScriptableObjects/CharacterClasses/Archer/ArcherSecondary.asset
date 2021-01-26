@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Piercing arrow
   abilityDescription: Fire an arrow that pierces enemies in a straight line
-  cooldown: 0
+  abilityLetter: 4
+  cooldown: 5
   icon: {fileID: 21300000, guid: 686a0ce285ec73a42aea3f4a8357752c, type: 3}

@@ -10,6 +10,7 @@ public class ClassStats : ScriptableObject
     [Header("Stats")]
     [SerializeField] private float attackSpeed;
     [SerializeField] private float moveSpeed;
+    [SerializeField] private int baseHealth;
     [Header("Abilities")]
     [SerializeField] private AbilityStats ability1;
     [SerializeField] private AbilityStats ability2;
@@ -30,4 +31,5 @@ public class ClassStats : ScriptableObject
     public AbilityStats PrimaryAttack { get => primaryAttack; private set => primaryAttack = value; }
     public AbilityStats SecondaryAttack { get => secondaryAttack; private set => secondaryAttack = value; }
     public Sprite CharacterSprite { get => characterSprite; private set => characterSprite = value; }
+    public int BaseHealth { get => baseHealth; private set => baseHealth = value; }
 }

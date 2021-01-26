@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Throwing knife
   abilityDescription: Throws out a fast moving, short range dagger
+  abilityLetter: 3
   cooldown: 0
   icon: {fileID: 21300000, guid: 15d7cafd362f1af4f8e58e4be4442f9a, type: 3}

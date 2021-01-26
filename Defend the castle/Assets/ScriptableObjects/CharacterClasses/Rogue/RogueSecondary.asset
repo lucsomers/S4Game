@@ -15,5 +15,6 @@ MonoBehaviour:
   abilityName: Poison dart
   abilityDescription: Throw out a poison dart that poisons and damages the first
     enemy hit
+  abilityLetter: 4
   cooldown: 0
   icon: {fileID: 21300000, guid: 8ddad1c99c27dc143972a98d210125e2, type: 3}

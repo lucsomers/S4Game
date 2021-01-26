@@ -7,7 +7,10 @@ public class ProjectileStats : ScriptableObject
     [SerializeField] private string projectileName;
     [SerializeField] private int damage;
     [SerializeField] private float speed;
-    [SerializeField] private string targetAbleTags;
+    [SerializeField] private float lifeTime;
+    [SerializeField] private bool destroyOnImpact = true;
+
+    [SerializeField] private string targetAbleTags = "Player";
 
     [Header("Graphics")]
     [SerializeField] private Sprite projectileSprite;
@@ -17,4 +20,6 @@ public class ProjectileStats : ScriptableObject
     public float Speed { get => speed; private set => speed = value; }
     public string TargetAbleTags { get => targetAbleTags; private set => targetAbleTags = value; }
     public Sprite ProjectileSprite { get => projectileSprite; private set => projectileSprite = value; }
+    public float LifeTime { get => lifeTime; private set => lifeTime = value; }
+    public bool DestroyOnImpact { get => destroyOnImpact; private set => destroyOnImpact = value; }
 }

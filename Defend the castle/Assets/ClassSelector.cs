@@ -73,7 +73,7 @@ public class ClassSelector : MonoBehaviour
         ClassStats stats = availableClassStats[currentClassIndex];
 
         classImage.sprite = stats.CharacterSprite;
-
+        
         classNameTextField.SetText(stats.ClassName);
         classDescriptionField.SetText(stats.ClassInfo);
 

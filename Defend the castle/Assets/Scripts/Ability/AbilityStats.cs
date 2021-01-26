@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Ability stat", menuName ="New AbilityStats")]
+[CreateAssetMenu(fileName = "New Ability stat", menuName = "Ability/New AbilityStats")]
 public class AbilityStats : ScriptableObject
 {
     [Header("Ability info")]
     [SerializeField] private string abilityName;
     [SerializeField] private string abilityDescription;
+    [SerializeField] private AbilityLetter abilityLetter;
 
     [Header("Stats")]
     [SerializeField] private float cooldown;
@@ -17,4 +18,5 @@ public class AbilityStats : ScriptableObject
     public string AbilityDescription { get => abilityDescription; private set => abilityDescription = value; }
     public float Cooldown { get => cooldown; private set => cooldown = value; }
     public Sprite Icon { get => icon; private set => icon = value; }
+    public AbilityLetter AbilityLetter { get => abilityLetter; private set => abilityLetter = value; }
 }
