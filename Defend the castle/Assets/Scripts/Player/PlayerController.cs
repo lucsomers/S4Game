@@ -7,12 +7,12 @@ public class PlayerController : MonoBehaviour
     [Header("Link")]
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody2D rigidBody;
-    //TODO: Auto fill this (Class) when loading the level
-     public CharacterClass StartClass;
 
     private PlayerMovement playerMovement;
+    private PlayerTargetPoints playerTargetPoints;
     private PlayerInput playerInput;
     private PlayerCollision playerCollision;
+    private PlayerHealth playerHealth;
 
     private PlayerPrimaryAttack playerPrimaryAttack;
     private PlayerSecondaryAttack playerSecondaryAttack;
@@ -26,8 +26,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         playerMovement = GetComponentInChildren<PlayerMovement>();
+        playerTargetPoints = GetComponentInChildren<PlayerTargetPoints>();
         playerInput = GetComponentInChildren<PlayerInput>();
         playerCollision = GetComponentInChildren<PlayerCollision>();
+        playerHealth = GetComponentInChildren<PlayerHealth>();
         playerClass = GetComponentInChildren<PlayerClass>();
         ui_update = GetComponentInChildren<UI_Update>();
 
@@ -36,8 +38,6 @@ public class PlayerController : MonoBehaviour
         playerAbility1 = GetComponentInChildren<PlayerAbility1>();
         playerAbility2 = GetComponentInChildren<PlayerAbility2>();
         playerAbility3 = GetComponentInChildren<PlayerAbility3>();
-
-        // moveSpeed = playerClass.CurrentPlayerClass.MoveSpeed;
     }
 
     public PlayerMovement PlayerMovement { get => playerMovement; private set => playerMovement = value; }
@@ -54,4 +54,6 @@ public class PlayerController : MonoBehaviour
     public PlayerAbility1 PlayerAbility1 { get => playerAbility1; set => playerAbility1 = value; }
     public PlayerAbility2 PlayerAbility2 { get => playerAbility2; set => playerAbility2 = value; }
     public PlayerAbility3 PlayerAbility3 { get => playerAbility3; set => playerAbility3 = value; }
+    public PlayerHealth PlayerHealth { get => playerHealth; set => playerHealth = value; }
+    public PlayerTargetPoints PlayerTargetPoints { get => playerTargetPoints; private set => playerTargetPoints = value; }
 }

@@ -14,15 +14,32 @@ public class ClassManager : MonoBehaviour
         {
             instance = this;
         }
+
+        SetupClassesList();
     }
     #endregion
 
     private List<CharacterClass> availableCharacterClasses = new List<CharacterClass>();
-
-    // Start is called before the first frame update
-    void Start()
+    
+    public CharacterClass GetStartingClass()
     {
-        SetupClassesList();
+        CharacterClass cToReturn = null;
+
+        string selectedClassName = PlayerPrefs.GetString("SelectedClass");
+
+        PlayerPrefs.DeleteKey("SelectedClass");
+        PlayerPrefs.Save();
+
+        foreach (CharacterClass characterClass in availableCharacterClasses)
+        {
+            if (characterClass.classStats.ClassName == selectedClassName)
+            {
+                cToReturn = characterClass;
+                break;
+            }
+        }
+
+        return cToReturn;
     }
 
     private void SetupClassesList()

@@ -15,5 +15,6 @@ MonoBehaviour:
   abilityName: Poison
   abilityDescription: Throw out a projectile if it hits an enemy it applies the poison
     effect on them
-  cooldown: 0
+  abilityLetter: 0
+  cooldown: 4
   icon: {fileID: 21300000, guid: 665da25a8d6743f488fcd488b7be2ac1, type: 3}

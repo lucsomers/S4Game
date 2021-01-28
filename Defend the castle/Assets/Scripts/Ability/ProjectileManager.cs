@@ -16,7 +16,7 @@ public class ProjectileManager : MonoBehaviour
     #endregion
 
     [SerializeField] private GameObject PrefabProjectile;
-    [SerializeField] private int StartAmountInPool = 20;
+    [SerializeField] private int StartAmountInPool = 40;
 
     List<Projectile> ProjectTiles = new List<Projectile>();
 

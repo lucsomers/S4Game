@@ -23,15 +23,18 @@ public class UI_Update : MonoBehaviour
     [SerializeField] private Slider abilitySecondarySlider;
 
     private PlayerController playerController;
+    private ClassStats currentPlayerClassStats;
 
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
 
+        currentPlayerClassStats = playerController.PlayerClass.CurrentPlayerClass.classStats;
+
         StartupUI();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         UpdateUI();
     }
@@ -39,21 +42,21 @@ public class UI_Update : MonoBehaviour
     private void StartupUI()
     {
         //Sprites
-        Ability1Icon.sprite = playerController.StartClass.classStats.Ability1.Icon;
-        Ability2Icon.sprite = playerController.StartClass.classStats.Ability2.Icon;
-        Ability3Icon.sprite = playerController.StartClass.classStats.Ability3.Icon;
-        AbilityPrimaryIcon.sprite = playerController.StartClass.classStats.PrimaryAttack.Icon;
-        AbilitySecondaryIcon.sprite = playerController.StartClass.classStats.SecondaryAttack.Icon;
+        Ability1Icon.sprite = currentPlayerClassStats.Ability1.Icon;
+        Ability2Icon.sprite = currentPlayerClassStats.Ability2.Icon;
+        Ability3Icon.sprite = currentPlayerClassStats.Ability3.Icon;
+        AbilityPrimaryIcon.sprite = currentPlayerClassStats.PrimaryAttack.Icon;
+        AbilitySecondaryIcon.sprite = currentPlayerClassStats.SecondaryAttack.Icon;
 
         //Cooldown
-        abilityPrimarySlider.maxValue = playerController.StartClass.classStats.PrimaryAttack.Cooldown;
-        abilitySecondarySlider.maxValue = playerController.StartClass.classStats.SecondaryAttack.Cooldown;
-        ability1Slider.maxValue = playerController.StartClass.classStats.Ability1.Cooldown;
-        ability2Slider.maxValue = playerController.StartClass.classStats.Ability2.Cooldown;
-        ability3Slider.maxValue = playerController.StartClass.classStats.Ability3.Cooldown;
+        abilityPrimarySlider.maxValue = currentPlayerClassStats.PrimaryAttack.Cooldown;
+        abilitySecondarySlider.maxValue = currentPlayerClassStats.SecondaryAttack.Cooldown;
+        ability1Slider.maxValue = currentPlayerClassStats.Ability1.Cooldown;
+        ability2Slider.maxValue = currentPlayerClassStats.Ability2.Cooldown;
+        ability3Slider.maxValue = currentPlayerClassStats.Ability3.Cooldown;
 
         //CharacterSprite
-        PlayerCharacter.sprite = playerController.StartClass.classStats.CharacterSprite;
+        PlayerCharacter.sprite = currentPlayerClassStats.CharacterSprite;
     }
 
     public void UpdateUI()

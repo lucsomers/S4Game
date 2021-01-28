@@ -44,6 +44,8 @@ public class ClassSelector : MonoBehaviour
         UpdateSelectedClass();
     }
 
+    public ClassStats CurrentClass { get => availableClassStats[currentClassIndex]; }
+
     public void PreviousClass()
     {
         currentClassIndex--;

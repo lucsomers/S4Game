@@ -10,6 +10,8 @@ public class PlayerHealth : MonoBehaviour
     private int currentPlayerHealth = 0;
     private int maxPlayerHealth = 0;
 
+    
+
     private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
@@ -59,4 +61,7 @@ public class PlayerHealth : MonoBehaviour
             currentPlayerHealth = 0;
         }
     }
+
+    public int CurrentPlayerHealth { get => currentPlayerHealth; private set => currentPlayerHealth = value; }
+    public int MaxPlayerHealth { get => maxPlayerHealth; private set => maxPlayerHealth = value; }
 }

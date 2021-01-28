@@ -11,10 +11,18 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 4dac1ea419e8ac74f9f50ce8086208b5, type: 2}
+    - target: {fileID: 358704920700072280, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 722e80d664567144ca9272cce8ada253, type: 2}
     - target: {fileID: 1297968800706098796, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 46cdbdfe25b0d7b4f848fae3fff6376a, type: 2}
+    - target: {fileID: 1297968800706098796, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: dea124cde8d2a8341ba0cb5665263f62, type: 2}
     - target: {fileID: 1504046404015543636, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: m_Name
       value: Alchemist
@@ -67,10 +75,18 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: f86b6bc8b0d4a08438bdc9adadd006a2, type: 2}
+    - target: {fileID: 4187877780369702347, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 816e4aab0ac148a448cdfe66786891e1, type: 2}
     - target: {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: c0eaafaede6769345a706eabecfc1520, type: 2}
+    - target: {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: d47c8a2c89c74624792cea489395c6f9, type: 2}
     - target: {fileID: 6789945179117675468, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: classStats
       value: 
@@ -79,5 +95,9 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 9529c0dd712a69c4bb648f2670ca5bd2, type: 2}
+    - target: {fileID: 7825494368072410435, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: a6027f7c6cc415c42beb4a858a276ab6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a521a000644a9f44489d71478044cfa6, type: 3}

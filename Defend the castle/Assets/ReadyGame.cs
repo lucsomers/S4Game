@@ -5,8 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class ReadyGame : MonoBehaviour
 {
+    [SerializeField] private ClassSelector selector;
+
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        string selectedClassName = selector.CurrentClass.ClassName;
+
+        PlayerPrefs.SetString("SelectedClass", selectedClassName);
+        PlayerPrefs.Save();
+
+        //Load next scene
+        SceneTransition.instance.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -29,7 +29,5 @@ public class ProjectileAbility : Ability
         
         //Set target for our projectile
         ToFire.ProjectileMover.SetTarget(player.PlayerInput.MousePos);
-
-        
     }
 }

@@ -15,5 +15,5 @@ MonoBehaviour:
   abilityName: Double arrow
   abilityDescription: Fire 2 arrows
   abilityLetter: 2
-  cooldown: 7
+  cooldown: 5
   icon: {fileID: 21300000, guid: ce8b52bed9250fa4691ef06a76556626, type: 3}

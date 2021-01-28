@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e1e9523d23b14345b5107d05a699224, type: 3}
+  m_Name: OrcArcher
+  m_EditorClassIdentifier: 
+  enemyName: Orc archer
+  maxHealth: 3
+  moveSpeed: 0.8
+  min_offset: -0.6
+  max_offset: 0.6
+  targetTag: Player
+  attackSpeed: 1.2
+  projectileStats: {fileID: 11400000, guid: 5f11164c1c1d4bd4f9d556278d8a365b, type: 2}
+  enemyAbility: {fileID: 2781250543540011511, guid: 7a3c488032846ff4aa5b75acc6998976, type: 3}

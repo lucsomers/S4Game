@@ -9,8 +9,8 @@ public class PlayerClass : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponentInParent<PlayerController>();
-
-        currentPlayerClass = playerController.StartClass;
+        
+        currentPlayerClass = ClassManager.instance.GetStartingClass();
     }
 
     public void ChangePlayerClass(CharacterClass newClass)

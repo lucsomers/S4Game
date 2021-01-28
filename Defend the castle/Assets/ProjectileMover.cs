@@ -6,6 +6,8 @@ public class ProjectileMover : MonoBehaviour
 {
     private Projectile projectile;
 
+    private bool isMoving = false;
+
     private float currentLifeTime = 0;
 
     private Vector3 normalizeDirection;
@@ -17,7 +19,7 @@ public class ProjectileMover : MonoBehaviour
 
     private void Update()
     {
-        if (projectile.IsMoving)
+        if (isMoving)
         {
             MoveToTarget();
 
@@ -26,7 +28,7 @@ public class ProjectileMover : MonoBehaviour
             if (currentLifeTime <= 0)
             {
                 currentLifeTime = 0;
-                projectile.IsMoving = false;
+                isMoving = false;
                 EndOfLifeTime();
             }
         }
@@ -34,6 +36,11 @@ public class ProjectileMover : MonoBehaviour
 
     private void EndOfLifeTime()
     {
+        if (projectile.Stats.SpawnsObjectAtEndOfLifetime)
+        {
+            projectile.ProjectileSpawner.SpawnObject();
+        }
+
         projectile.DestroySelf();
     }
 
@@ -46,6 +53,8 @@ public class ProjectileMover : MonoBehaviour
 
     public void SetTarget(Vector3 target)
     {
+        currentLifeTime = projectile.Stats.LifeTime;
+
         projectile.Target = target;
 
         normalizeDirection = ((Vector3)target - transform.position).normalized;
@@ -54,5 +63,7 @@ public class ProjectileMover : MonoBehaviour
         var dir = target - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+       isMoving = true;
     }
 }

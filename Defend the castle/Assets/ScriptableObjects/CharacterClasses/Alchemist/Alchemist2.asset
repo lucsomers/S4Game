@@ -16,5 +16,5 @@ MonoBehaviour:
   abilityDescription: Throw a potion that at the end of its travel time explodes
     and leaves behind a zone that damages enemies.
   abilityLetter: 1
-  cooldown: 0
+  cooldown: 5
   icon: {fileID: 21300000, guid: bc1c19f6186bcc54cbd438a74c7237e5, type: 3}

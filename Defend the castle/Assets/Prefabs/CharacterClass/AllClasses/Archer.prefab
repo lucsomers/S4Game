@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: bc8a581324293c146bd4fc42b291d33a, type: 2}
-  dashPower: 800
-  dashTime: 0.1
+  dashPower: 400
+  dashTime: 0.2
 --- !u!1001 &7951076270078521300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ PrefabInstance:
     - target: {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: projectileStats
       value: 
-      objectReference: {fileID: 11400000, guid: 0ca2f6ea3eb8b9a419d07a584153b4c6, type: 2}
+      objectReference: {fileID: 11400000, guid: dae290c3b705cc040b11b39b56210752, type: 2}
     - target: {fileID: 6789945179117675468, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: classStats
       value: 

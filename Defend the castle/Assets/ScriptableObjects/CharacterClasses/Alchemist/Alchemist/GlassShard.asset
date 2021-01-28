@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186df0fca48e7d647b3b72432f6990a6, type: 3}
+  m_Name: GlassShard
+  m_EditorClassIdentifier: 
+  projectileName: Glass shard
+  damage: 1
+  speed: 5
+  lifeTime: 1
+  destroyOnImpact: 1
+  isHealing: 0
+  targetAbleTags: Enemy
+  spawnsObjectAtEndOfLifetime: 0
+  spawnObjectAtCollision: 0
+  projectileStatsToSpawn: {fileID: 0}
+  projectileSprite: {fileID: -9043898755600059295, guid: 7040ccd5ae3f6584f9baf81c23ec54c7, type: 3}
