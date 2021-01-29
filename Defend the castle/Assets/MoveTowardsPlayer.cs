@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,7 +21,9 @@ public class MoveTowardsPlayer : StateMachineBehaviour
         {
             Transform currentTarget = enemyController.EnemyTargeting.CurrentTarget;
 
-            animator.transform.position = Vector3.MoveTowards(animator.transform.position, currentTarget.position, enemyController.Stats.MoveSpeed * Time.deltaTime);
+            Vector3 posToMoveTo = Vector3.MoveTowards(animator.transform.position, currentTarget.position, enemyController.Stats.MoveSpeed * Time.deltaTime);
+
+            animator.transform.position = posToMoveTo;
         }
     }
 }

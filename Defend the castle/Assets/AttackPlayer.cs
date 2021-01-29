@@ -15,7 +15,7 @@ public class AttackPlayer : StateMachineBehaviour
     //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (enemyController.EnemyAttackRange.InRange)
+        if (enemyController.EnemyAttackRange.InRange && enemyController.EnemyTargeting.CurrentTarget != null)
         {
             if (enemyController.EnemyAttack.CurrentCooldown <= 0)
             {

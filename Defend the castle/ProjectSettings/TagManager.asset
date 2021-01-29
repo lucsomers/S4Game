@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Obstacle
   - Water
+  - Node
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - 
   - 
   - Enemy
-  - 
-  - 
+  - Player
+  - Wall
   - 
   - 
   - 

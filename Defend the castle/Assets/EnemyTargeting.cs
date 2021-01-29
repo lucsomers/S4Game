@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyTargeting : MonoBehaviour
 {
+    [SerializeField] private LayerMask ignoredLayers;
+
     private Transform currentTarget;
 
     private Transform playerTarget;
@@ -12,19 +14,8 @@ public class EnemyTargeting : MonoBehaviour
     private bool getNextTarget = false;
 
     private int playersInZone = 0;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        PlayerController player = collision.GetComponent<PlayerController>();
-
-
-        if (player != null)
-        {
-            playersInZone++;
-            currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
-            playerTarget = player.transform;
-        }
-    }
+    private bool playerInSight = false;
+    private bool canShoot;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -39,29 +30,61 @@ public class EnemyTargeting : MonoBehaviour
                 playersInZone = 0;
                 currentTarget = null;
                 playerTarget = null;
-            }
-            else
-            {
-                getNextTarget = true;
+                playerInSight = false;
             }
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (getNextTarget)
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
+        PlayerController player = collision.GetComponent<PlayerController>();
 
-            if (player != null)
+        if (player != null)
+        {
+            CheckIfPlayerInSight(player);
+
+            if (playerInSight)
             {
-                currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
-                playerTarget = player.transform;
-                getNextTarget = false;
+                if (currentTarget == null)
+                {
+                    currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
+                    playerTarget = player.transform;
+                }
+                else
+                {
+                    currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
+                }
             }
+            else
+            {
+                if (!currentTarget.CompareTag("Node"))
+                {
+                    currentTarget = AINodeManager.instance.GetClosesedNode(player.transform);
+                    playerTarget = player.transform;
+                }
+            }
+        }
+    }
+
+    private void CheckIfPlayerInSight(PlayerController player)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 100f, ignoredLayers);
+
+        Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red, 0.1f);
+
+        if (hit.transform.CompareTag(player.tag))
+        {
+            playerInSight = true;
+            canShoot = true;
+        }
+        else
+        {
+            playerInSight = false;
+            canShoot = false;
         }
     }
 
     public Transform CurrentTarget { get => currentTarget; private set => currentTarget = value; }
     public Transform PlayerTarget { get => playerTarget; private set => playerTarget = value; }
+    public bool CanShoot { get => canShoot; private set => canShoot = value; }
 }

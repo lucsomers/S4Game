@@ -15,7 +15,7 @@ MonoBehaviour:
   projectileName: Basic arrow
   damage: 1
   speed: 5
-  lifeTime: 0.8
+  lifeTime: 0.6
   destroyOnImpact: 1
   ignoresWalls: 0
   isHealing: 0
