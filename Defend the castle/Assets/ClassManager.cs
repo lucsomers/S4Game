@@ -39,6 +39,11 @@ public class ClassManager : MonoBehaviour
             }
         }
 
+        if (cToReturn == null)
+        {
+            return availableCharacterClasses[0];
+        }
+
         return cToReturn;
     }
 

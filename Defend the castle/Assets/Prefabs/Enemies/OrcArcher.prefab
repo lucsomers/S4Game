@@ -83,6 +83,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OrcArcher
       objectReference: {fileID: 0}
+    - target: {fileID: 8317957882980010135, guid: 172a9a28ac568cb4ebe959308a65bfa0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 172a9a28ac568cb4ebe959308a65bfa0, type: 3}
 --- !u!114 &3602791880347142243 stripped

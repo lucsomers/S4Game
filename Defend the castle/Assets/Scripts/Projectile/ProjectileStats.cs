@@ -9,7 +9,8 @@ public class ProjectileStats : ScriptableObject
     [SerializeField] private float speed;
     [SerializeField] private float lifeTime;
     [SerializeField] private bool destroyOnImpact = true;
-    [SerializeField] private bool isHealing;
+    [SerializeField] private bool ignoresWalls = false;
+    [SerializeField] private bool isHealing = false;
     [SerializeField] private string targetAbleTags = "Player";
 
     [Header("Object spawning")]
@@ -31,4 +32,5 @@ public class ProjectileStats : ScriptableObject
     public bool SpawnObjectAtCollision { get => spawnObjectAtCollision; private set => spawnObjectAtCollision = value; }
     public ProjectileStats ProjectileStatsToSpawn { get => projectileStatsToSpawn; set => projectileStatsToSpawn = value; }
     public bool IsHealing { get => isHealing; private set => isHealing = value; }
+    public bool IgnoresWalls { get => ignoresWalls; private set => ignoresWalls = value; }
 }

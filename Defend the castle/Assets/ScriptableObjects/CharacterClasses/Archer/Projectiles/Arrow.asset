@@ -17,8 +17,10 @@ MonoBehaviour:
   speed: 5
   lifeTime: 0.8
   destroyOnImpact: 1
+  ignoresWalls: 0
+  isHealing: 0
   targetAbleTags: Enemy
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
-  prefabToSpawn: {fileID: 0}
+  projectileStatsToSpawn: {fileID: 0}
   projectileSprite: {fileID: -4346244404228752641, guid: 44b2319279bffdf4294458a731f75b3f, type: 3}

@@ -17,6 +17,7 @@ MonoBehaviour:
   speed: 2
   lifeTime: 0.8
   destroyOnImpact: 1
+  ignoresWalls: 0
   isHealing: 0
   targetAbleTags: Enemy
   spawnsObjectAtEndOfLifetime: 1

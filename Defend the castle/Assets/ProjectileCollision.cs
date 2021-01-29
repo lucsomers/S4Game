@@ -28,6 +28,14 @@ public class ProjectileCollision : MonoBehaviour
                 projectile.DestroySelf();
             }
         }
+
+        if (other.CompareTag("Wall") || other.CompareTag("Obstacle"))
+        {
+            if (!projectile.Stats.IgnoresWalls)
+            {
+                projectile.DestroySelf();
+            }
+        }
     }
 
     private void HandleHit(Collider2D other)
