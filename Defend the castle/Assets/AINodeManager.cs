@@ -25,15 +25,15 @@ public class AINodeManager : MonoBehaviour
         }
     }
 
-    public Transform GetClosesedNode(Transform currentPos)
+    public Transform GetClosesedNode(Transform playerPos)
     {
         Transform toReturn = NodeList[0];
 
-        float shortestDistance = Vector3.Distance(NodeList[0].position, currentPos.position);
+        float shortestDistance = Vector3.Distance(NodeList[0].position, playerPos.position);
 
         foreach (Transform node in NodeList)
         {
-            float newDistance = Vector3.Distance(node.position, currentPos.position);
+            float newDistance = Vector3.Distance(node.position, playerPos.position);
 
             if (newDistance < shortestDistance)
             {
@@ -42,7 +42,7 @@ public class AINodeManager : MonoBehaviour
                 toReturn = node;
             }
         }
-
         return toReturn;
     }
+    
 }

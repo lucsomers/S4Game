@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void PlayerDeath()
     {
-        playerController.gameObject.SetActive(false);
+        SceneTransition.instance.LoadScene(0);
     }
 
     private void NormalizeHealthValue()

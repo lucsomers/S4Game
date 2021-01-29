@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e1e9523d23b14345b5107d05a699224, type: 3}
-  m_Name: OrcArcher
+  m_Name: BlackKnight
   m_EditorClassIdentifier: 
-  enemyName: Orc archer
-  maxHealth: 3
-  moveSpeed: 1
-  min_offset: -0.4
-  max_offset: 0.4
+  enemyName: BlackKnight
+  maxHealth: 10
+  moveSpeed: 0.7
+  min_offset: -0.1
+  max_offset: 0.1
   targetTag: Player
-  attackSpeed: 1.2
-  projectileStats: {fileID: 11400000, guid: 5f11164c1c1d4bd4f9d556278d8a365b, type: 2}
+  attackSpeed: 0.5
+  projectileStats: {fileID: 11400000, guid: 83c12c5a7edcd4641bc22964749b5c13, type: 2}
   enemyAbility: {fileID: 2781250543540011511, guid: 7a3c488032846ff4aa5b75acc6998976, type: 3}

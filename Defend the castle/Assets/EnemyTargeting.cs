@@ -8,14 +8,13 @@ public class EnemyTargeting : MonoBehaviour
     [SerializeField] private LayerMask ignoredLayers;
 
     private Transform currentTarget;
-
     private Transform playerTarget;
 
-    private bool getNextTarget = false;
-
     private int playersInZone = 0;
+    
     private bool playerInSight = false;
     private bool canShoot;
+    private bool getNextTarget = false;
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -57,10 +56,13 @@ public class EnemyTargeting : MonoBehaviour
             }
             else
             {
-                if (!currentTarget.CompareTag("Node"))
+                if (currentTarget != null)
                 {
-                    currentTarget = AINodeManager.instance.GetClosesedNode(player.transform);
-                    playerTarget = player.transform;
+                    if (!currentTarget.CompareTag("Node"))
+                    {
+                        currentTarget = AINodeManager.instance.GetClosesedNode(player.transform);
+                        playerTarget = player.transform;
+                    }
                 }
             }
         }
@@ -69,8 +71,6 @@ public class EnemyTargeting : MonoBehaviour
     private void CheckIfPlayerInSight(PlayerController player)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 100f, ignoredLayers);
-
-        Debug.DrawRay(transform.position, player.transform.position - transform.position, Color.red, 0.1f);
 
         if (hit.transform.CompareTag(player.tag))
         {

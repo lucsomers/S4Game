@@ -228,6 +228,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.00012207031
       objectReference: {fileID: 0}
+    - target: {fileID: 6182574648605050520, guid: dd52b3a54a4c1d04481cf711cf4af166, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7398973074253668189, guid: dd52b3a54a4c1d04481cf711cf4af166, type: 3}
       propertyPath: playerController
       value: 
