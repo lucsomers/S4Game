@@ -23,7 +23,19 @@ public class PlayerPrimaryAttack : PlayerAttack
         {
             if (CurrentCooldown <= 0)
             {
+                CheckNetworkSync(playerController);
                 DoAttack(playerController.PlayerClass.CurrentPlayerClass.PrimaryAttack, playerController);
+            }
+        }
+    }
+
+    private void CheckNetworkSync(PlayerController playerController)
+    {
+        if (GameData.instance.Multiplayer)
+        {
+            if (playerController.PlayerNetwork.PV.IsMine)
+            {
+                playerController.PlayerNetwork.PrimaryAttack();
             }
         }
     }

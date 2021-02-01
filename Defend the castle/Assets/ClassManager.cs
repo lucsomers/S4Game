@@ -23,17 +23,13 @@ public class ClassManager : MonoBehaviour
 
     private List<CharacterClass> availableCharacterClasses = new List<CharacterClass>();
     
-    public CharacterClass GetStartingClass()
+    public CharacterClass GetStartingClass(string className)
     {
         CharacterClass cToReturn = null;
 
-        string selectedClassName = PlayerPrefs.GetString("SelectedClass");
-
-                PlayerPrefs.Save();
-
         foreach (CharacterClass characterClass in availableCharacterClasses)
         {
-            if (characterClass.classStats.ClassName == selectedClassName)
+            if (characterClass.classStats.ClassName == className)
             {
                 cToReturn = characterClass;
                 break;

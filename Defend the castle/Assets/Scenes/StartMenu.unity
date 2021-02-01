@@ -153,9 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   singlePlayerIndex: 1
-  multiplayerIndex: 0
+  multiplayerIndex: 2
   optionsIndex: 0
-  characterScreenIndex: 3
+  characterScreenIndex: 4
 --- !u!4 &307973927
 Transform:
   m_ObjectHideFlags: 0
@@ -168,7 +168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375502649
 GameObject:
@@ -247,11 +247,35 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 375502652}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 307973926}
+        m_TargetAssemblyTypeName: NavigationMainMenu, Assembly-CSharp
+        m_MethodName: StartMultiplayerGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1716839164}
+        m_TargetAssemblyTypeName: GameData, Assembly-CSharp
+        m_MethodName: set_Multiplayer
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &375502652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,7 +453,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &847951263
 GameObject:
@@ -794,7 +818,7 @@ RectTransform:
   - {fileID: 1928245975}
   - {fileID: 1706578763}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -866,7 +890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7557148079028239348, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7557148079028239348, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1418,7 +1442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4005119523344907041, guid: 43e13018f44d9204eac1eb06553656e3, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4005119523344907041, guid: 43e13018f44d9204eac1eb06553656e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1731,7 +1755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767480, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767480, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1751,14 +1775,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
       propertyPath: GameScenes.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
       propertyPath: GameScenes.Array.data[0]
-      value: 2
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
+      propertyPath: GameScenes.Array.data[1]
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
+--- !u!1 &1716839163 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5991132036910767482, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
+  m_PrefabInstance: {fileID: 1716839162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716839164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716839163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33805a4bc6192e1459c3e17c991564e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928245974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1845,6 +1890,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: NavigationMainMenu, Assembly-CSharp
         m_MethodName: StartSinglePlayer
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1716839164}
+        m_TargetAssemblyTypeName: GameData, Assembly-CSharp
+        m_MethodName: set_Multiplayer
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

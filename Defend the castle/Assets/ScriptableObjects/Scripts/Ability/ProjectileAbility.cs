@@ -17,8 +17,16 @@ public class ProjectileAbility : Ability
     private void FireProjectile(PlayerController player)
     {
         Vector3 startpos = player.transform.position;
+        Vector3 target;
 
-        Vector3 target = player.PlayerInput.MousePos;
+        if (player.PlayerNetwork.PV.IsMine)
+        {
+            target = player.PlayerInput.MousePos;
+        }
+        else
+        {
+            target = player.PlayerInput.LastGivenMousePos;
+        }
 
         ProjectileManager.instance.CreateProjectile(startpos, target, projectileStats);
     }

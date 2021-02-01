@@ -10,7 +10,9 @@ public class PlayerClass : MonoBehaviour
     {
         playerController = GetComponentInParent<PlayerController>();
         
-        currentPlayerClass = ClassManager.instance.GetStartingClass();
+        string selectedClassName = PlayerPrefs.GetString("SelectedClass");
+
+        currentPlayerClass = ClassManager.instance.GetStartingClass(selectedClassName);
     }
 
     public void ChangePlayerClass(CharacterClass newClass)

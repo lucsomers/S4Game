@@ -30,14 +30,20 @@ public class GameScenesManager : MonoBehaviour
 
     public void LoadNextScene()
     {
-        int indexToLoad = GameScenes[Random.Range(0, GameScenes.Count)];
+        int indexToLoad = 0;
 
         for (int i = 0; i < 100; i++)
         {
             indexToLoad = GameScenes[Random.Range(0, GameScenes.Count)];
+
+            if (!alreadyLoadedScenes.Contains(indexToLoad))
+            {
+                break;
+            }
         }
 
         currentlyLoadedScene = indexToLoad;
+
         alreadyLoadedScenes.Add(indexToLoad);
 
         SceneTransition.instance.LoadScene(indexToLoad);

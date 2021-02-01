@@ -19,16 +19,12 @@ public class AttackPlayerState : EnemyState
 
         currentPlayerFocus = GetComponentInParent<EnemyStateMachine>().CurrentPlayerFocus;
 
-        currentCooldown = 0;
-
         OutSideOfAttackRange = false;
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-
-        HandleCoolDown();
 
         bool seeplayer = SeePlayer();
 
@@ -68,24 +64,13 @@ public class AttackPlayerState : EnemyState
         return playerOutsideRange;
     }
 
-    private void HandleCoolDown()
-    {
-        if (currentCooldown != 0)
-        {
-            currentCooldown -= Time.deltaTime;
-
-            if (currentCooldown <= 0)
-            {
-                currentCooldown = 0;
-            }
-        }
-    }
+    
 
     private void Attack()
     {
-        if (currentCooldown == 0)
+        if (Manager.CurrentCooldown == 0)
         {
-            currentCooldown = Manager.Stats.AttackSpeed;
+            Manager.CurrentCooldown = Manager.Stats.AttackSpeed;
 
             Vector3 Target = CalculateAimOfset();
 
@@ -105,28 +90,6 @@ public class AttackPlayerState : EnemyState
 
     private bool SeePlayer()
     {
-        bool playerInLineOfSight = false;
-
-        RaycastHit2D hit = Physics2D.Raycast(Manager.transform.position, currentPlayerFocus.transform.position - Manager.transform.position, Manager.AttackRange, targetableLayers);
-        
-        if (hit.transform != null)
-        {
-            if (hit.transform.CompareTag("Player") && !currentPlayerFocus.Invisible)
-            {
-                playerInLineOfSight = true;
-                Manager.SetVisible(true);
-            }
-            else
-            {
-                playerInLineOfSight = false; 
-
-                if (!currentPlayerFocus.Invisible)
-                {
-                    Manager.SetVisible(false);
-                }
-            }
-        }
-
-        return playerInLineOfSight;
+        return (CanSeePlayer(Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.AttackRange));
     }
 }

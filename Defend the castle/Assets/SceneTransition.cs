@@ -26,17 +26,23 @@ public class SceneTransition : MonoBehaviour
         animator.SetBool("StartScene", true);
     }
 
+    public void LoadScene(string sceneToLoadName)
+    {
+        Debug.Log(SceneManager.GetSceneByName(sceneToLoadName).name);
+        StartCoroutine(LoadLevel(SceneManager.GetSceneByName(sceneToLoadName).buildIndex));
+    }
+
     public void LoadScene(int sceneToLoadIndex)
     {
         StartCoroutine(LoadLevel(sceneToLoadIndex));
     }
 
-    IEnumerator LoadLevel(int sceneToLoadIndex)
+    IEnumerator LoadLevel(int sceneToLoadName)
     {
         animator.SetBool("StartScene", false);
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(sceneToLoadIndex);
+        SceneManager.LoadScene(sceneToLoadName);
     }
 }

@@ -28,7 +28,7 @@ public class EnemyStateMachine : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //Update the current state
         currentState.UpdateState();
@@ -44,7 +44,7 @@ public class EnemyStateMachine : MonoBehaviour
             //We end the current state
             currentState.EndState();
 
-            if (currentState.NextState != null)
+            if (currentState.NextState != null && !currentState.GoToDefaultState)
             {
                 //we have a next state so we move on
                 currentState = currentState.NextState;

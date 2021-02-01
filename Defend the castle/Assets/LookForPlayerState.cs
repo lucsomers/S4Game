@@ -11,6 +11,9 @@ public class LookForPlayerState : EnemyState
 
     private EnemyStateMachine enemyStateMachine;
 
+    private const float TimeBetweenRays = 1f;
+    private float currentTime = 0;
+
     public override void StartState()
     {
         base.StartState();
@@ -29,28 +32,20 @@ public class LookForPlayerState : EnemyState
 
     private void ShootRay()
     {
+        currentTime = 0;
+
         foreach (PlayerController player in SetupManager.instance.PlayersInGame)
         {
-            RaycastHit2D hit = Physics2D.Raycast(Manager.transform.position, player.transform.position - Manager.transform.position, Manager.DetectionRange, targetableLayers);
-            
-            if (hit.transform != null)
+            if (CanSeePlayer(Manager.transform.position, player, targetableLayers, Manager.DetectionRange))
             {
-                if (hit.transform.CompareTag("Player") && !player.Invisible)
-                {
-                    PlayerInSight = true;
-                    Manager.SetVisible(true);
-                    enemyStateMachine.CurrentPlayerFocus = player;
-                }
-                else
-                {
-                    PlayerInSight = false;
-
-                    if (!player.Invisible)
-                    {
-                        Manager.SetVisible(false);
-                    }
-                    enemyStateMachine.CurrentPlayerFocus = null;
-                }
+                PlayerInSight = true;
+                enemyStateMachine.CurrentPlayerFocus = player;
+                break;
+            }
+            else
+            {
+                PlayerInSight = false;
+                enemyStateMachine.CurrentPlayerFocus = null;
             }
         }
     }

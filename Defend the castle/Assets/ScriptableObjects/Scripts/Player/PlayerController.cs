@@ -1,14 +1,18 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviourPunCallbacks
 {
     [Header("Link")]
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody2D rigidBody;
 
+    private PhotonView pv;
+
     private PlayerMovement playerMovement;
+    private PlayerNetworkCalls playerNetwork;
     private PlayerTargetPoints playerTargetPoints;
     private PlayerInput playerInput;
     private PlayerCollision playerCollision;
@@ -27,12 +31,12 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        playerClass = GetComponentInChildren<PlayerClass>();
         playerMovement = GetComponentInChildren<PlayerMovement>();
         playerTargetPoints = GetComponentInChildren<PlayerTargetPoints>();
         playerInput = GetComponentInChildren<PlayerInput>();
         playerCollision = GetComponentInChildren<PlayerCollision>();
         playerHealth = GetComponentInChildren<PlayerHealth>();
-        playerClass = GetComponentInChildren<PlayerClass>();
         ui_update = GetComponentInChildren<UI_Update>();
 
         playerPrimaryAttack = GetComponentInChildren<PlayerPrimaryAttack>();
@@ -40,6 +44,8 @@ public class PlayerController : MonoBehaviour
         playerAbility1 = GetComponentInChildren<PlayerAbility1>();
         playerAbility2 = GetComponentInChildren<PlayerAbility2>();
         playerAbility3 = GetComponentInChildren<PlayerAbility3>();
+
+        playerNetwork = GetComponent<PlayerNetworkCalls>();
     }
 
     private void Start()
@@ -64,4 +70,5 @@ public class PlayerController : MonoBehaviour
     public PlayerHealth PlayerHealth { get => playerHealth; set => playerHealth = value; }
     public PlayerTargetPoints PlayerTargetPoints { get => playerTargetPoints; private set => playerTargetPoints = value; }
     public bool Invisible { get => invisible; set => invisible = value; }
+    public PlayerNetworkCalls PlayerNetwork { get => playerNetwork; set => playerNetwork = value; }
 }

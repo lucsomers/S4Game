@@ -5,10 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class NavigationMainMenu : MonoBehaviour
 {
-    [SerializeField] private int singlePlayerIndex;
-    [SerializeField] private int multiplayerIndex;
-    [SerializeField] private int optionsIndex;
-    [SerializeField] private int characterScreenIndex;
+    [SerializeField] private int singlePlayerIndex = 0;
+    [SerializeField] private int multiplayerIndex = 0;
+    [SerializeField] private int optionsIndex = 0;
+    [SerializeField] private int characterScreenIndex = 0;
 
     public void StartSinglePlayer()
     {

@@ -9,7 +9,7 @@ public class ProjectileCollision : MonoBehaviour
 
     private Collider2D collider;
 
-    private float timeBetweenCollisions = 0.3f;
+    private float timeBetweenCollisions = 0.1f;
     private float currentTimeBetweenCollisions = 0f;
 
     private bool canCollide = true;
@@ -39,7 +39,7 @@ public class ProjectileCollision : MonoBehaviour
     {
         HandleCollision(other, false);
     }
-
+    
     public void HandleCollision(Collider2D other, bool FromAOE)
     {
         if (canCollide && !projectile.Stats.IsAOE || FromAOE)

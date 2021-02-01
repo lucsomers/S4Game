@@ -16,9 +16,19 @@ public class EndOfRoom : MonoBehaviour
 
     private void Update()
     {
-        if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame)
+        if (!GameData.instance.Multiplayer)
         {
-            GameScenesManager.instance.LoadNextScene();
+            if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame)
+            {
+                GameScenesManager.instance.LoadNextScene();
+            }
+        }
+        else
+        {
+            if (playersAtEnd >= SetupManager.instance.PlayersInGame.Count)
+            {
+                GameScenesManager.instance.LoadNextScene();
+            }
         }
     }
 

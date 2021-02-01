@@ -7,7 +7,7 @@ public class EnemiesInSceneController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (EnemyController enemy in GetComponentsInChildren<EnemyController>())
+        foreach (EnemyManager enemy in GetComponentsInChildren<EnemyManager>())
         {
             enemy.SetVisible(false);
         } 

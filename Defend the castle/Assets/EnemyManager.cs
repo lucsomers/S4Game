@@ -11,6 +11,8 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private float attackRange;
     [SerializeField] private float detectionRange;
 
+    private float currentCooldown = 0;
+
     private EnemyHealth enemyHealth;
     private SpriteRenderer spriteRenderer;
 
@@ -18,6 +20,24 @@ public class EnemyManager : MonoBehaviour
     {
         enemyHealth = GetComponentInChildren<EnemyHealth>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    private void Update()
+    {
+        HandleCoolDown();
+    }
+
+    private void HandleCoolDown()
+    {
+        if (currentCooldown != 0)
+        {
+            currentCooldown -= Time.deltaTime;
+
+            if (currentCooldown <= 0)
+            {
+                currentCooldown = 0;
+            }
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -40,4 +60,6 @@ public class EnemyManager : MonoBehaviour
     public float AttackRange { get => attackRange; private set => attackRange = value; }
     public float DetectionRange { get => detectionRange; private set => detectionRange = value; }
     public EnemyHealth EnemyHealth { get => enemyHealth; set => enemyHealth = value; }
+
+    public float CurrentCooldown { get => currentCooldown; set => currentCooldown = value; }
 }

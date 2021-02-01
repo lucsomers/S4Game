@@ -9,7 +9,7 @@ public class PlayerTargetPoints : MonoBehaviour
 
     private List<Transform> targetPoints = new List<Transform>();
 
-    private void Awake()
+    private void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class PlayerAbility3 : PlayerAttack
 {
@@ -22,7 +23,19 @@ public class PlayerAbility3 : PlayerAttack
         {
             if (CurrentCooldown <= 0)
             {
+                CheckNetworkSync(playerController);
                 DoAttack(playerController.PlayerClass.CurrentPlayerClass.Ability3, playerController);
+            }
+        }
+    }
+
+    private void CheckNetworkSync(PlayerController playerController)
+    {
+        if (GameData.instance.Multiplayer)
+        {
+            if (playerController.PlayerNetwork.PV.IsMine)
+            {
+                playerController.PlayerNetwork.Ability3();
             }
         }
     }

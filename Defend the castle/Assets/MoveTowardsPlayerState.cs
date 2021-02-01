@@ -28,8 +28,7 @@ public class MoveTowardsPlayerState : EnemyState
 
         playerOutSideOfDetectionRange = false;
         InAttackRange = false;
-
-        savedNextState = NextState;
+        GoToDefaultState = false;
     }
 
     public override void UpdateState()
@@ -40,8 +39,10 @@ public class MoveTowardsPlayerState : EnemyState
 
         bool inSight = PlayerInSight();
 
+        float DistancePlayerEnemy = Vector3.Distance(currentPlayerFocus.transform.position, Manager.transform.position);
+
         //Check if we are in attack range
-        if (Vector3.Distance(Manager.transform.position, currentPlayerFocus.transform.position) <= Manager.AttackRange)
+        if (DistancePlayerEnemy <= Manager.AttackRange)
         {
             if (inSight)
             {
@@ -50,7 +51,7 @@ public class MoveTowardsPlayerState : EnemyState
             }
         }
         //Check if player is outside of detection range
-        else if (Vector3.Distance(Manager.transform.position, currentPlayerFocus.transform.position) > Manager.DetectionRange)
+        else if (DistancePlayerEnemy > Manager.DetectionRange)
         {
             playerOutSideOfDetectionRange = true;
         }
@@ -60,7 +61,7 @@ public class MoveTowardsPlayerState : EnemyState
         {
             //Move enemy towards playerPos because we see player within range
             closestNode = null;
-            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, pointToMoveTowards.position, Manager.Stats.MoveSpeed * Time.deltaTime);
+            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, pointToMoveTowards.position, Manager.Stats.MoveSpeed * Time.fixedDeltaTime);
         }
         else
         {
@@ -69,33 +70,18 @@ public class MoveTowardsPlayerState : EnemyState
             {
                 closestNode = AINodeManager.instance.GetClosesedNode(currentPlayerFocus.transform);
             }
-            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, closestNode.position, Manager.Stats.MoveSpeed * Time.deltaTime);
+
+            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, closestNode.position, Manager.Stats.MoveSpeed * Time.fixedDeltaTime);
         }
+
+        posToMoveTo = new Vector3(posToMoveTo.x, posToMoveTo.y, 0);
 
         Manager.transform.position = posToMoveTo;
     }
 
     private bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Manager.transform.position, currentPlayerFocus.transform.position - Manager.transform.position, Manager.DetectionRange, targetableLayers);
-        
-        if (hit.transform != null)
-        {
-            if (hit.transform.CompareTag("Player") && !currentPlayerFocus.Invisible)
-            {
-                Manager.SetVisible(true);
-                return true;
-            }
-            else
-            {
-                if (!currentPlayerFocus.Invisible)
-                {
-                    Manager.SetVisible(false);
-                }
-            }
-        }
-
-        return false;
+        return (CanSeePlayer(Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.DetectionRange));
     }
 
     public override bool CheckForStateEnd()
@@ -103,13 +89,12 @@ public class MoveTowardsPlayerState : EnemyState
         if (playerOutSideOfDetectionRange)
         {
             //if player is outside of range we start with default state again
-            NextState = null;
+            GoToDefaultState = true;
             return playerOutSideOfDetectionRange;
         }
         else
         {
             //Player is in attack range so we move on to next state
-            NextState = savedNextState;
             return InAttackRange;
         }
     }

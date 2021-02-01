@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ReadyGame : MonoBehaviour
+public class ReadyGame : MonoBehaviourPunCallbacks
 {
     [SerializeField] private ClassSelector selector;
 
@@ -15,6 +16,16 @@ public class ReadyGame : MonoBehaviour
         PlayerPrefs.Save();
 
         //Load next scene
-        SceneTransition.instance.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (GameData.instance.Multiplayer)
+        {
+            if (PhotonNetwork.IsMasterClient)
+            {
+                GameScenesManager.instance.LoadNextScene();
+            }
+        }
+        else
+        {
+            GameScenesManager.instance.LoadNextScene();
+        }
     }
 }

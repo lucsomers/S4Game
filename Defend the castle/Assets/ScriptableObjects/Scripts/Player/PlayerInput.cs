@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour
     private bool rightMouseButtonDown = false;
 
     private Vector2 mousePos;
+    private Vector2 lastGivenMousePos;
 
     private void Start()
     {
@@ -28,19 +29,25 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        //Movement
-        x_axis = Input.GetAxisRaw("Horizontal");
-        y_axis = Input.GetAxisRaw("Vertical");
+        if (playerController.PlayerNetwork.PV != null || !GameData.instance.Multiplayer)
+        {
+            if (playerController.PlayerNetwork.PV.IsMine || !GameData.instance.Multiplayer)
+            {
+                //Movement
+                x_axis = Input.GetAxisRaw("Horizontal");
+                y_axis = Input.GetAxisRaw("Vertical");
 
-        //SKills
-        ability1 = Input.GetKey(skillData.Skill1);
-        ability2 = Input.GetKey(skillData.Skill2);
-        ability3 = Input.GetKey(skillData.Skill3);
+                //Skills
+                ability1 = Input.GetKey(skillData.Skill1);
+                ability2 = Input.GetKey(skillData.Skill2);
+                ability3 = Input.GetKey(skillData.Skill3);
 
-        //Mouse
-        mousePos = playerController.Cam.ScreenToWorldPoint(Input.mousePosition);
-        leftMouseButtonDown = Input.GetMouseButton(0);
-        rightMouseButtonDown = Input.GetMouseButton(1);
+                //Mouse
+                mousePos = playerController.Cam.ScreenToWorldPoint(Input.mousePosition);
+                leftMouseButtonDown = Input.GetMouseButton(0);
+                rightMouseButtonDown = Input.GetMouseButton(1);
+            }
+        }
     }
 
     public float X_axis { get => x_axis; private set => x_axis = value; }
@@ -51,4 +58,5 @@ public class PlayerInput : MonoBehaviour
     public bool LeftMouseButtonDown { get => leftMouseButtonDown; private set => leftMouseButtonDown = value; }
     public bool RightMouseButtonDown { get => rightMouseButtonDown; private set => rightMouseButtonDown = value; }
     public Vector2 MousePos { get => mousePos; private set => mousePos = value; }
+    public Vector2 LastGivenMousePos { get => lastGivenMousePos; set => lastGivenMousePos = value; }
 }

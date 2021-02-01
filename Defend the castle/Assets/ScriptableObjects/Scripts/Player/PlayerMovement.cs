@@ -21,30 +21,37 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
 
         body = playerController.RigidBody;
-       // movespeed = 80;
-        movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
     }
 
     private void Update()
     {
-        x_axis = playerController.PlayerInput.X_axis;
-        y_axis = playerController.PlayerInput.Y_axis;
+        if (playerController.PlayerNetwork.PV != null || !GameData.instance.Multiplayer)
+        {
+            if (playerController.PlayerNetwork.PV.IsMine || !GameData.instance.Multiplayer)
+            {
+                x_axis = playerController.PlayerInput.X_axis;
+                y_axis = playerController.PlayerInput.Y_axis;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        if (!isDashing)
+        if (playerController.PlayerNetwork.PV != null || !GameData.instance.Multiplayer)
         {
-            float movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
-
-            if (x_axis != 0 && y_axis != 0) // Check for diagonal movement
+            if ((!isDashing && (playerController.PlayerNetwork.PV.IsMine || !GameData.instance.Multiplayer)))
             {
-                // limit movement speed diagonally, so you move at 70% speed
-                x_axis *= diagnalMovementLimiter;
-                y_axis *= diagnalMovementLimiter;
-            }
+                float movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
 
-            body.velocity = new Vector2(x_axis * movespeed * Time.fixedDeltaTime, y_axis * movespeed * Time.fixedDeltaTime);
+                if (x_axis != 0 && y_axis != 0) // Check for diagonal movement
+                {
+                    // limit movement speed diagonally, so you move at 70% speed
+                    x_axis *= diagnalMovementLimiter;
+                    y_axis *= diagnalMovementLimiter;
+                }
+
+                body.velocity = new Vector2(x_axis * movespeed * Time.fixedDeltaTime, y_axis * movespeed * Time.fixedDeltaTime);
+            }
         }
     }
 
