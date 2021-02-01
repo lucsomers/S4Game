@@ -15,5 +15,5 @@ MonoBehaviour:
   abilityName: Stealth
   abilityDescription: 'Go invisible for a certain amount of time '
   abilityLetter: 1
-  cooldown: 0
+  cooldown: 8
   icon: {fileID: 21300000, guid: c884585050efdb1499eaa6767313ba51, type: 3}

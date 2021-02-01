@@ -14,12 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileName: Slash
   damage: 3
-  speed: 0.8
-  lifeTime: 4
+  speed: 1.8
+  lifeTime: 2
   destroyOnImpact: 1
   ignoresWalls: 0
   isHealing: 0
   targetAbleTags: Player
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 0}

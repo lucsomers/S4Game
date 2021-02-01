@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e29c4f48f42a0745bf29583eb025a5e, type: 3}
   m_Name: Rogue1
   m_EditorClassIdentifier: 
-  abilityName: Dagger storm
-  abilityDescription: Throw multiple daggers in an cone
-  cooldown: 0
-  icon: {fileID: 21300000, guid: 83ce1fa3cc301f343949aff58223d8df, type: 3}
+  abilityName: Dash
+  abilityDescription: Dash in the direction of the mouse
+  abilityLetter: 0
+  cooldown: 2
+  icon: {fileID: 21300000, guid: d6cb31aa0b740ef409efb3466d3c6146, type: 3}

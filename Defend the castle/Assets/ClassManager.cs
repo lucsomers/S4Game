@@ -15,6 +15,8 @@ public class ClassManager : MonoBehaviour
             instance = this;
         }
 
+        DontDestroyOnLoad(this.gameObject);
+
         SetupClassesList();
     }
     #endregion
@@ -27,8 +29,7 @@ public class ClassManager : MonoBehaviour
 
         string selectedClassName = PlayerPrefs.GetString("SelectedClass");
 
-        PlayerPrefs.DeleteKey("SelectedClass");
-        PlayerPrefs.Save();
+                PlayerPrefs.Save();
 
         foreach (CharacterClass characterClass in availableCharacterClasses)
         {
@@ -53,5 +54,11 @@ public class ClassManager : MonoBehaviour
         {
             availableCharacterClasses.Add(characterClass);
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("SelectedClass");
+        PlayerPrefs.Save();
     }
 }

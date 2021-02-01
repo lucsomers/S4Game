@@ -7,6 +7,8 @@ public class EnemyTargeting : MonoBehaviour
 {
     [SerializeField] private LayerMask ignoredLayers;
 
+    private EnemyController enemyController;
+
     private Transform currentTarget;
     private Transform playerTarget;
 
@@ -15,6 +17,11 @@ public class EnemyTargeting : MonoBehaviour
     private bool playerInSight = false;
     private bool canShoot;
     private bool getNextTarget = false;
+
+    private void Start()
+    {
+        enemyController = GetComponentInParent<EnemyController>();
+    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -30,6 +37,7 @@ public class EnemyTargeting : MonoBehaviour
                 currentTarget = null;
                 playerTarget = null;
                 playerInSight = false;
+                enemyController.SetVisible(false);
             }
         }
     }
@@ -44,14 +52,11 @@ public class EnemyTargeting : MonoBehaviour
 
             if (playerInSight)
             {
-                if (currentTarget == null)
+                if (currentTarget == null || currentTarget.CompareTag("Node"))
                 {
                     currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
                     playerTarget = player.transform;
-                }
-                else
-                {
-                    currentTarget = player.PlayerTargetPoints.GetRandomTargetPoint();
+                    canShoot = true;
                 }
             }
             else
@@ -72,15 +77,19 @@ public class EnemyTargeting : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position, 100f, ignoredLayers);
 
-        if (hit.transform.CompareTag(player.tag))
+        if (hit.transform.CompareTag("Player") && !player.Invisible)
         {
             playerInSight = true;
-            canShoot = true;
+            enemyController.SetVisible(true);
         }
         else
         {
             playerInSight = false;
             canShoot = false;
+            if (!player.Invisible)
+            {
+                enemyController.SetVisible(false);
+            }
         }
     }
 

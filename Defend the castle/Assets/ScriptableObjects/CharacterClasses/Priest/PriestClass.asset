@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb0fa0e56f72704bab6e9f1bee6e11b, type: 3}
+  m_Name: PriestClass
+  m_EditorClassIdentifier: 
+  className: Shaman
+  classInfo: This class can summon totems to alter the battlefield. A supportive
+    class that helps out the team whenever he can
+  classTag: Shaman
+  moveSpeed: 70
+  baseHealth: 6
+  ability1: {fileID: 11400000, guid: 0a51336203496bf4a9a393808bbb2d69, type: 2}
+  ability2: {fileID: 11400000, guid: 54b421e80dc92974ba70aae44cdd4f21, type: 2}
+  ability3: {fileID: 11400000, guid: 9bcf7f0eb508d2e4ea26d1aee49cf5f8, type: 2}
+  primaryAttack: {fileID: 11400000, guid: efea25449b963d74aba3ac6e1b1885fc, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: 0b5eb3b358f4136428dc1852ccaff325, type: 2}
+  characterSprite: {fileID: 21300000, guid: f49cee6ff47b0c1409ca7360129a2a16, type: 3}

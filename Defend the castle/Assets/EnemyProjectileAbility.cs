@@ -14,23 +14,13 @@ public class EnemyProjectileAbility : EnemyAbility
 
     private void FireProjectile(EnemyController enemyController)
     {
-        Projectile ToFire = ProjectileManager.instance.GetAvailableProjectile();
-
-        //Set pos
-        ToFire.transform.position = enemyController.transform.position;
-
-        //Set active
-        ToFire.gameObject.SetActive(true);
-
-        //Set stats for collision
-        ToFire.SetStats(enemyController.Stats.ProjectileStats);
-
         //Calculate the aimofset of the enemy
-        Vector3 aimpoint = CalculateAimOfset(enemyController);
+        Vector3 target = CalculateAimOfset(enemyController);
 
-        //Set target for our projectile
-        ToFire.ProjectileMover.SetTarget(aimpoint);
+        ProjectileManager.instance.CreateProjectile(enemyController.transform.position, target,enemyController.Stats.ProjectileStats);
     }
+
+    
 
     private Vector3 CalculateAimOfset(EnemyController enemyController)
     {

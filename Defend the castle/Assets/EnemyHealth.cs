@@ -2,14 +2,14 @@
 
 public class EnemyHealth : MonoBehaviour
 {
-    private EnemyController enemyController;
+    private EnemyManager enemyController;
 
     private int currentEnemyHealth = 0;
     private int maxEnemyHealth = 0;
 
     private void Start()
     {
-        enemyController = GetComponentInParent<EnemyController>();
+        enemyController = GetComponentInParent<EnemyManager>();
 
         maxEnemyHealth = enemyController.Stats.MaxHealth;
         currentEnemyHealth = maxEnemyHealth;

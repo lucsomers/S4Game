@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186df0fca48e7d647b3b72432f6990a6, type: 3}
+  m_Name: GlassBottle
+  m_EditorClassIdentifier: 
+  projectileName: Bottle
+  damage: 0
+  speed: 2
+  lifeTime: 1.2
+  destroyOnImpact: 1
+  ignoresWalls: 0
+  isHealing: 0
+  targetAbleTags: Enemy
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0
+  spawnsObjectAtEndOfLifetime: 1
+  spawnObjectAtCollision: 1
+  projectileStatsToSpawn: {fileID: 11400000, guid: c8a58df8903cc3042b321795e776f648, type: 2}
+  projectileSprite: {fileID: 8146806319349385919, guid: 81d4a4574d6902c4b877030820573f5c, type: 3}

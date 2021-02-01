@@ -8,4 +8,4 @@ PhysicsMaterial2D:
   m_PrefabAsset: {fileID: 0}
   m_Name: EnemyBounce
   friction: 40
-  bounciness: 0
+  bounciness: 10

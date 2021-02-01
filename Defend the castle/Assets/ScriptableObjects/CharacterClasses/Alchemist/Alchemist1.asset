@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Alchemist1
   m_EditorClassIdentifier: 
   abilityName: Poison
-  abilityDescription: Throw out a projectile if it hits an enemy it applies the poison
-    effect on them
+  abilityDescription: Throw out a projectile that heals the first entity it hits
   abilityLetter: 0
-  cooldown: 4
+  cooldown: 10
   icon: {fileID: 21300000, guid: 665da25a8d6743f488fcd488b7be2ac1, type: 3}

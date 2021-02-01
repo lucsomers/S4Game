@@ -16,8 +16,7 @@ MonoBehaviour:
   classInfo: An class that uses range and speed to outsmart his opponents. It has
     low health but great range.
   classTag: Archer
-  attackSpeed: 1
-  moveSpeed: 80
+  moveSpeed: 100
   baseHealth: 5
   ability1: {fileID: 11400000, guid: bc8a581324293c146bd4fc42b291d33a, type: 2}
   ability2: {fileID: 11400000, guid: 215c9f625160a43468ca090a8c26c7ec, type: 2}

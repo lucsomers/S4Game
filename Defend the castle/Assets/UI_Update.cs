@@ -67,5 +67,25 @@ public class UI_Update : MonoBehaviour
         ability1Slider.value = playerController.PlayerAbility1.CurrentCooldown;
         ability2Slider.value = playerController.PlayerAbility2.CurrentCooldown;
         ability3Slider.value = playerController.PlayerAbility3.CurrentCooldown;
+
+        CheckInvisible();
+    }
+
+    private void CheckInvisible()
+    {
+        if (playerController.Invisible)
+        {
+            if (PlayerCharacter.color.a != 0.5f)
+            {
+                PlayerCharacter.color = new Color(PlayerCharacter.color.r, PlayerCharacter.color.g, PlayerCharacter.color.b, 0.5f);
+            }
+        }
+        else
+        {
+            if (PlayerCharacter.color.a != 1)
+            {
+                PlayerCharacter.color = new Color(PlayerCharacter.color.r, PlayerCharacter.color.g, PlayerCharacter.color.b, 1);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ public class EnemyAttackRange : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
         SetAnimatorBool(collision, true);
     }
 
@@ -30,7 +30,7 @@ public class EnemyAttackRange : MonoBehaviour
 
     private void SetAnimatorBool(Collider2D collision, bool value)
     {
-        if (collision.CompareTag(enemyController.Stats.TargetTag) && enemyController.EnemyTargeting.CurrentTarget != null)
+        if (collision.CompareTag(enemyController.Stats.TargetTag) && value != InRange)
         {
             inRange = value;
             enemyController.Animator.SetBool("InRange", inRange);

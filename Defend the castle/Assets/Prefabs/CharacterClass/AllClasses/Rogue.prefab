@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &3116101303132161994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006757711168474164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efdd3b07d6704dc4fbf2b555f873d5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: d76708a2117775442ab7c288aefdf7c6, type: 2}
+  untargetableTime: 2
+--- !u!114 &6750520907555772116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006757711168474164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96df66f1d864e4745a065e90c20cf65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: c6a41c2dc1f942c4dbcdb9b50701d964, type: 2}
+  dashPower: 500
+  dashTime: 0.2
 --- !u!1001 &3455901097009965554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15,6 +44,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: dd54944b673c9c243ad69c4f3b5be4d3, type: 2}
+    - target: {fileID: 1297968800706098796, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: a17cbcc3841ea2044925c669a4db92f8, type: 2}
     - target: {fileID: 1504046404015543636, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: m_Name
       value: Rogue
@@ -67,6 +100,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 796b291d272fe35408e5471a18350393, type: 2}
+    - target: {fileID: 4187877780369702347, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 883c6e689c9079d4dbf7358c59eae585, type: 2}
     - target: {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: stats
       value: 
@@ -79,5 +116,16 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: e8862d4f7933641428a2e7ef02df6dce, type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 7825494368072410435, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 8ed62047b6384c4419e7ca903825b9d3, type: 2}
+    m_RemovedComponents:
+    - {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+    - {fileID: 358704920700072280, guid: a521a000644a9f44489d71478044cfa6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+--- !u!1 &2006757711168474164 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3759586760708875718, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+  m_PrefabInstance: {fileID: 3455901097009965554}
+  m_PrefabAsset: {fileID: 0}

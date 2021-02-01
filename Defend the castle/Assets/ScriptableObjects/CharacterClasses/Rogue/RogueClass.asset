@@ -15,11 +15,11 @@ MonoBehaviour:
   className: Rogue
   classInfo: This class uses stealth and speed to outsmart your opponent.
   classTag: Rogue
-  attackSpeed: 2
-  moveSpeed: 80
-  ability1: {fileID: 11400000, guid: dd54944b673c9c243ad69c4f3b5be4d3, type: 2}
+  moveSpeed: 90
+  baseHealth: 4
+  ability1: {fileID: 11400000, guid: c6a41c2dc1f942c4dbcdb9b50701d964, type: 2}
   ability2: {fileID: 11400000, guid: d76708a2117775442ab7c288aefdf7c6, type: 2}
   ability3: {fileID: 11400000, guid: e8862d4f7933641428a2e7ef02df6dce, type: 2}
   primaryAttack: {fileID: 11400000, guid: 796b291d272fe35408e5471a18350393, type: 2}
-  secondaryAttack: {fileID: 11400000, guid: c6a41c2dc1f942c4dbcdb9b50701d964, type: 2}
+  secondaryAttack: {fileID: 11400000, guid: dd54944b673c9c243ad69c4f3b5be4d3, type: 2}
   characterSprite: {fileID: 21300000, guid: 92b7c55c8c5fd2047963ff3e82edd540, type: 3}

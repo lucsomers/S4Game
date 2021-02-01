@@ -113,7 +113,7 @@ PrefabInstance:
     - target: {fileID: 7825494368072410435, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: projectileStats
       value: 
-      objectReference: {fileID: 11400000, guid: 0ca2f6ea3eb8b9a419d07a584153b4c6, type: 2}
+      objectReference: {fileID: 11400000, guid: 71c14c3b152d2c14aa22fc829ae5dc20, type: 2}
     m_RemovedComponents:
     - {fileID: 1297968800706098796, guid: a521a000644a9f44489d71478044cfa6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a521a000644a9f44489d71478044cfa6, type: 3}
