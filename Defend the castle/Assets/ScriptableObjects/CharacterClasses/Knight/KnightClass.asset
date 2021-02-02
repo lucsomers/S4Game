@@ -16,11 +16,11 @@ MonoBehaviour:
   classInfo: A class that focuses on brute strenght to overcome their enemy. It has
     a big health pool to tank alot of damage.
   classTag: Knight
-  attackSpeed: 1
   moveSpeed: 80
-  ability1: {fileID: 11400000, guid: 33913abf124ac05408cf094980ff88c0, type: 2}
-  ability2: {fileID: 11400000, guid: 04da1829aaaafef44a3f1114a4ca099c, type: 2}
-  ability3: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
+  baseHealth: 20
+  ability1: {fileID: 11400000, guid: 04da1829aaaafef44a3f1114a4ca099c, type: 2}
+  ability2: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
+  ability3: {fileID: 11400000, guid: 33913abf124ac05408cf094980ff88c0, type: 2}
   primaryAttack: {fileID: 11400000, guid: 79ac9ea0d06a6a841b66f4716f798f6b, type: 2}
   secondaryAttack: {fileID: 11400000, guid: 47e4bb826dde90f4b84f7cb7ee1575cb, type: 2}
   characterSprite: {fileID: 21300000, guid: 953678f9afc8b8e44b51d6668af59ede, type: 3}

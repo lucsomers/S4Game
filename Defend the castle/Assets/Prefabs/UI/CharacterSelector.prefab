@@ -46,6 +46,8 @@ MonoBehaviour:
   availableClassStats:
   - {fileID: 11400000, guid: fb9254a614e6ab749ab62a402203e4b5, type: 2}
   - {fileID: 11400000, guid: 50bfd09be5134af4f8892f344554b716, type: 2}
+  - {fileID: 11400000, guid: eab85b5dc6fee3046b4af4b2083cec56, type: 2}
+  - {fileID: 11400000, guid: c366aae7a8544224eb8beb348dedbaea, type: 2}
   classImage: {fileID: 0}
   classNameTextField: {fileID: 0}
   classDescriptionField: {fileID: 0}

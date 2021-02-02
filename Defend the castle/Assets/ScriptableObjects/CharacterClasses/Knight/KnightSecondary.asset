@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e29c4f48f42a0745bf29583eb025a5e, type: 3}
   m_Name: KnightSecondary
   m_EditorClassIdentifier: 
-  abilityName: Shields up
-  abilityDescription: Defend in the direction of the mouse blocking projectiles hitting
-    you
+  abilityName: Cleave
+  abilityDescription: Throw out a projectile that pierces targets
   abilityLetter: 4
-  cooldown: 0
-  icon: {fileID: 21300000, guid: c45ae9eeabed9aa4e9fa2c12cf0954c4, type: 3}
+  cooldown: 4
+  icon: {fileID: 21300000, guid: 92ef76e0a75e76645a2f0276aca991e5, type: 3}

@@ -47,9 +47,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Fog
+  - name: Ground
+    uniqueID: 2997574915
+    locked: 0
+  - name: Wall
+    uniqueID: 1069460639
+    locked: 0
+  - name: Entitie
     uniqueID: 3739508895
     locked: 0
-  - name: LineOfSight
-    uniqueID: 2997574915
+  - name: Projectile
+    uniqueID: 907540009
+    locked: 0
+  - name: UI
+    uniqueID: 3304530851
     locked: 0

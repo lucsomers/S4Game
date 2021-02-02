@@ -16,4 +16,4 @@ MonoBehaviour:
   abilityDescription: Summon a totem that gives everybody in range extra movementspeed
   abilityLetter: 0
   cooldown: 1
-  icon: {fileID: 21300000, guid: a8466e0e3946e2f45a900e96dca82b32, type: 3}
+  icon: {fileID: 21300000, guid: a8d451ee313d1e743b99c2fd63047e90, type: 3}

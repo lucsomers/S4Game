@@ -1100,7 +1100,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7251804587984601672, guid: a1355ac73686b4541b16e6a5c8bb31be, type: 3}
       propertyPath: availableClassStats.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7251804587984601672, guid: a1355ac73686b4541b16e6a5c8bb31be, type: 3}
       propertyPath: classImage
@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: availableClassStats.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: c366aae7a8544224eb8beb348dedbaea, type: 2}
+    - target: {fileID: 7251804587984601672, guid: a1355ac73686b4541b16e6a5c8bb31be, type: 3}
+      propertyPath: availableClassStats.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: eab85b5dc6fee3046b4af4b2083cec56, type: 2}
     - target: {fileID: 7251804587984601673, guid: a1355ac73686b4541b16e6a5c8bb31be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -800.0001

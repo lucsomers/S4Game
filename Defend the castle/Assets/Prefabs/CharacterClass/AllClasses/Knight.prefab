@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &654358474091357263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408740490898267207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db13c1862433d504eba639964338fcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
+  healingAmount: 5
+--- !u!114 &847338379695195453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408740490898267207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96df66f1d864e4745a065e90c20cf65f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 33913abf124ac05408cf094980ff88c0, type: 2}
+  dashPower: 100
+  dashTime: 1
+--- !u!114 &4574791839066525023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6408740490898267207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd6e9398765eb074e9158979ffcc283d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
+  maxShieldHealth: 20
+  shieldRechargeTickTime: 1
+  shieldRechargeAmount: 2
 --- !u!1001 &7844381840004036993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +112,10 @@ PrefabInstance:
       propertyPath: stats
       value: 
       objectReference: {fileID: 11400000, guid: 79ac9ea0d06a6a841b66f4716f798f6b, type: 2}
+    - target: {fileID: 4187877780369702347, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 2c1eddadc221fbd43b73c17a26621175, type: 2}
     - target: {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: stats
       value: 
@@ -78,6 +127,18 @@ PrefabInstance:
     - target: {fileID: 7825494368072410435, guid: a521a000644a9f44489d71478044cfa6, type: 3}
       propertyPath: stats
       value: 
-      objectReference: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
-    m_RemovedComponents: []
+      objectReference: {fileID: 11400000, guid: 47e4bb826dde90f4b84f7cb7ee1575cb, type: 2}
+    - target: {fileID: 7825494368072410435, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+      propertyPath: projectileStats
+      value: 
+      objectReference: {fileID: 11400000, guid: bfede445a71cdd646aa566f675e60497, type: 2}
+    m_RemovedComponents:
+    - {fileID: 358704920700072280, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+    - {fileID: 1297968800706098796, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+    - {fileID: 6465057295594125359, guid: a521a000644a9f44489d71478044cfa6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+--- !u!1 &6408740490898267207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3759586760708875718, guid: a521a000644a9f44489d71478044cfa6, type: 3}
+  m_PrefabInstance: {fileID: 7844381840004036993}
+  m_PrefabAsset: {fileID: 0}

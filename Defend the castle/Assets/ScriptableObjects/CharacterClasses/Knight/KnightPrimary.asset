@@ -15,5 +15,5 @@ MonoBehaviour:
   abilityName: Slash
   abilityDescription: A basic sword slash with okay damage
   abilityLetter: 3
-  cooldown: 0
+  cooldown: 0.4
   icon: {fileID: 21300000, guid: 4a210ed97ea9bb140b20e14afade745f, type: 3}
