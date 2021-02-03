@@ -20,6 +20,7 @@ public class AttackPlayerState : EnemyState
         currentPlayerFocus = GetComponentInParent<EnemyStateMachine>().CurrentPlayerFocus;
 
         OutSideOfAttackRange = false;
+
     }
 
     public override void UpdateState()
@@ -30,6 +31,7 @@ public class AttackPlayerState : EnemyState
 
         if (seeplayer)
         {
+            Manager.EnemyAnimator.Attack();
             //We see player in attack range
             Attack();
         }
@@ -64,8 +66,6 @@ public class AttackPlayerState : EnemyState
         return playerOutsideRange;
     }
 
-    
-
     private void Attack()
     {
         if (Manager.CurrentCooldown == 0)
@@ -74,7 +74,7 @@ public class AttackPlayerState : EnemyState
 
             Vector3 Target = CalculateAimOfset();
 
-            ProjectileManager.instance.CreateProjectile(Manager.transform.position, Target, Manager.Stats.ProjectileStats);
+            Manager.Attack(Target);
         }
     }
 
@@ -90,6 +90,6 @@ public class AttackPlayerState : EnemyState
 
     private bool SeePlayer()
     {
-        return (CanSeePlayer(Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.AttackRange));
+        return (LineOfSight.CanSeePlayer(Manager,Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.AttackRange));
     }
 }

@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: Piercing arrow
   m_EditorClassIdentifier: 
   projectileName: Piercing arrow
-  damage: 1
+  damage: 10
   speed: 3
   lifeTime: 2
   destroyOnImpact: 0
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 0}

@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     private EnemyHealth enemyHealth;
     private SpriteRenderer spriteRenderer;
+    private EnemyAnimator enemyAnimator;
 
     private PhotonView pv;
 
@@ -23,6 +25,7 @@ public class EnemyManager : MonoBehaviour
     {
         enemyHealth = GetComponent<EnemyHealth>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        enemyAnimator = GetComponentInChildren<EnemyAnimator>();
         pv = GetComponent<PhotonView>();
     }
 
@@ -64,7 +67,26 @@ public class EnemyManager : MonoBehaviour
     public float AttackRange { get => attackRange; private set => attackRange = value; }
     public float DetectionRange { get => detectionRange; private set => detectionRange = value; }
     public EnemyHealth EnemyHealth { get => enemyHealth; set => enemyHealth = value; }
-
     public float CurrentCooldown { get => currentCooldown; set => currentCooldown = value; }
+
+    public void Attack(Vector3 target)
+    {
+        if (GameData.instance.Multiplayer)
+        {
+            pv.RPC("AttackRPC", RpcTarget.All, target);
+        }
+        else
+        {
+            AttackRPC(target);
+        }
+    }
+
+    [PunRPC]
+    public void AttackRPC(Vector3 target)
+    {
+        ProjectileManager.instance.CreateProjectile(transform.position, target, Stats.ProjectileStats);
+    }
+
     public PhotonView PV { get => pv; private set => pv = value; }
+    public EnemyAnimator EnemyAnimator { get => enemyAnimator; set => enemyAnimator = value; }
 }

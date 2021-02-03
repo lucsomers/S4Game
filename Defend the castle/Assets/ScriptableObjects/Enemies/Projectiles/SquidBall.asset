@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: SquidBall
   m_EditorClassIdentifier: 
   projectileName: SquidBall
-  damage: 1
+  damage: 10
   speed: 2
   lifeTime: 3
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Player
+  isHealing: 0
+  isSpeedBuff: 0
   isMultishot: 1
-  amountOfInstances: 3
+  amountOfInstances: 4
   spreadMax: 0.8
   spreadMin: -0.8
   isAOE: 0

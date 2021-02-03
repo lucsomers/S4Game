@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Graphic_Spear
+  m_Controller: {fileID: 9100000, guid: d82ed18284d562d438b993c1d44ceae9, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 38989cb0c962eda42bdeb4721072c600, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a5861210d24c5de4ba9d5e8c237dd89d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: efd181fc8e70f0346b42f392d0c7a46e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 05970f56d8dff7c4eb10aa7d3af7506c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 33f2680c3ff841443919e20c690c638f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e8218c4c3bbe6d24c9db3e331c804fb1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3db2ec1d5bd0e24429128bb54d6dcecd, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 095f083d31ad1f74596d48e37ea2809f, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b4fe3ed5602a6f5498b9335f7259f388, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 5266a7266d6271740a2a7ddde02a96e9, type: 2}

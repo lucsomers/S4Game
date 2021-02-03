@@ -29,6 +29,8 @@ public class MoveTowardsPlayerState : EnemyState
         playerOutSideOfDetectionRange = false;
         InAttackRange = false;
         GoToDefaultState = false;
+
+        Manager.EnemyAnimator.Move(true);
     }
 
     public override void UpdateState()
@@ -81,7 +83,7 @@ public class MoveTowardsPlayerState : EnemyState
 
     private bool PlayerInSight()
     {
-        return (CanSeePlayer(Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.DetectionRange));
+        return (LineOfSight.CanSeePlayer(Manager, Manager.transform.position, currentPlayerFocus, targetableLayers, Manager.DetectionRange));
     }
 
     public override bool CheckForStateEnd()

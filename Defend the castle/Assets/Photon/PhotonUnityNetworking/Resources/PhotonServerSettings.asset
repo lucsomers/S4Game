@@ -50,6 +50,7 @@ MonoBehaviour:
   - HealEnemyRPC
   - DealDamageRPC
   - HealPlayerRPC
+  - AttackRPC
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

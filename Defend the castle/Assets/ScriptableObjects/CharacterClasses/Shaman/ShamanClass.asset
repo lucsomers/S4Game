@@ -17,7 +17,7 @@ MonoBehaviour:
     class that helps out the team whenever he can
   classTag: Shaman
   moveSpeed: 70
-  baseHealth: 6
+  baseHealth: 60
   ability1: {fileID: 11400000, guid: 9db3940957d6b3346b931720fa8cd8b9, type: 2}
   ability2: {fileID: 11400000, guid: 58040bbc2b5acfc4d8fd2bb021d82a16, type: 2}
   ability3: {fileID: 11400000, guid: c498869919ee3ef47ba58a30628de133, type: 2}

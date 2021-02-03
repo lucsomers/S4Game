@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: Arrow
   m_EditorClassIdentifier: 
   projectileName: Basic arrow
-  damage: 1
+  damage: 10
   speed: 5
-  lifeTime: 0.6
+  lifeTime: 0.7
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 0}

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: HealBottle
   m_EditorClassIdentifier: 
   projectileName: Heal bottle
-  damage: 2
+  damage: 20
   speed: 3
   lifeTime: 1
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 1
   targetAbleTags: Player
+  isHealing: 1
+  isSpeedBuff: 0
   isMultishot: 0
   amountOfInstances: 0
   spreadMax: 0

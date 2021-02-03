@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
     [SerializeField] private Camera cam;
     [SerializeField] private Rigidbody2D rigidBody;
     [SerializeField] private GameObject shieldObject;
+    [SerializeField] private GameObject lightObject;
 
     private PhotonView pv;
 
@@ -76,4 +77,5 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public PlayerNetworkCalls PlayerNetwork { get => playerNetwork; private set => playerNetwork = value; }
     public PlayerBuff PlayerBuff { get => playerBuff; private set => playerBuff = value; }
     public GameObject ShieldObject { get => shieldObject; private set => shieldObject = value; }
+    public GameObject LightObject { get => lightObject; private set => lightObject = value; }
 }

@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: FlyingBearTrap
   m_EditorClassIdentifier: 
   projectileName: Flying Bear trap
-  damage: 5
+  damage: 50
   speed: 2
   lifeTime: 0.6
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 1
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 11400000, guid: 99884f16b4e8b9a4e92cc30f24fb456a, type: 2}

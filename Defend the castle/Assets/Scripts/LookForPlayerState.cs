@@ -21,6 +21,8 @@ public class LookForPlayerState : EnemyState
         enemyStateMachine = GetComponentInParent<EnemyStateMachine>();
 
         PlayerInSight = false;
+
+        Manager.EnemyAnimator.Move(false);
     }
 
     public override void UpdateState()
@@ -36,7 +38,7 @@ public class LookForPlayerState : EnemyState
 
         foreach (PlayerController player in SetupManager.instance.PlayersInGame)
         {
-            if (CanSeePlayer(Manager.transform.position, player, targetableLayers, Manager.DetectionRange))
+            if (LineOfSight.CanSeePlayer(Manager,Manager.transform.position, player, targetableLayers, Manager.DetectionRange))
             {
                 PlayerInSight = true;
                 enemyStateMachine.CurrentPlayerFocus = player;

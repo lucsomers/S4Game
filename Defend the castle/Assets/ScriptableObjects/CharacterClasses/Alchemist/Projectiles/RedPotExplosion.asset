@@ -13,19 +13,20 @@ MonoBehaviour:
   m_Name: RedPotExplosion
   m_EditorClassIdentifier: 
   projectileName: red potion explosion
-  damage: 1
+  damage: 15
   speed: 0
   lifeTime: 0.3
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
   isMultishot: 0
   amountOfInstances: 0
   spreadMax: 0
   spreadMin: 0
   isAOE: 1
-  aoeSize: 0.25
+  aoeSize: 0.3
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 0}

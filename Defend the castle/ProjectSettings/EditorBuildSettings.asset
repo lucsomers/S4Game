@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Room.unity
     guid: 78b138241e8e8fe49a94d0dd3392826e
   - enabled: 1
+    path: Assets/Scenes/Levels/LevelUp.unity
+    guid: 6b946ec3a7f0e7043a6d086cac15013f
+  - enabled: 1
     path: Assets/Scenes/Levels/Level1.unity
     guid: a87271da6396ace4e93b6ea23f21e5b8
   - enabled: 1
@@ -35,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level4.unity
     guid: f09a66419e7fb604ea15ae59069029e6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level5.unity
+    guid: 237ae65561ad9714fadcd03b938ea545
   m_configObjects: {}

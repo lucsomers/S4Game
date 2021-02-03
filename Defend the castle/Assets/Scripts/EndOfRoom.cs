@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class EndOfRoom : MonoBehaviour
     int playersAtEnd = -1;
 
     bool firstime = true;
+
+    bool loadingNewLevel = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,11 +29,18 @@ public class EndOfRoom : MonoBehaviour
     {
         if (GameData.instance.Multiplayer)
         {
-            if (!firstime)
+            if (PhotonNetwork.IsMasterClient)
             {
-                if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame)
+                if (!firstime)
                 {
-                    GameScenesManager.instance.LoadNextScene();
+                    if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame)
+                    {
+                        if (!loadingNewLevel)
+                        {
+                            loadingNewLevel = true;
+                            GameScenesManager.instance.LoadNextScene();
+                        }
+                    }
                 }
             }
         }

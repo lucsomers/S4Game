@@ -17,7 +17,7 @@ MonoBehaviour:
     a big health pool to tank alot of damage.
   classTag: Knight
   moveSpeed: 80
-  baseHealth: 20
+  baseHealth: 200
   ability1: {fileID: 11400000, guid: 04da1829aaaafef44a3f1114a4ca099c, type: 2}
   ability2: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
   ability3: {fileID: 11400000, guid: 33913abf124ac05408cf094980ff88c0, type: 2}

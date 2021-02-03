@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (GameData.instance.Multiplayer)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PV.IsMine)
             {
                 PV.RPC("HealPlayerRPC", RpcTarget.All, currentPlayerHealth + amount);
             }
@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (GameData.instance.Multiplayer)
         {
-            if (PhotonNetwork.IsMasterClient)
+            if (PV.IsMine)
             {
                 PV.RPC("DealDamageRPC", RpcTarget.All, currentPlayerHealth - amount);
             }
@@ -82,7 +82,10 @@ public class PlayerHealth : MonoBehaviour
     {
         if (GameData.instance.Multiplayer)
         {
-            SceneTransition.instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                SceneTransition.instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
         }
         else
         {

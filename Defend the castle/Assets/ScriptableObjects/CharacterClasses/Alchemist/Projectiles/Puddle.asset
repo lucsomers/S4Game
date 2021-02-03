@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Puddle
   m_EditorClassIdentifier: 
   projectileName: Puddle
-  damage: 2
+  damage: 15
   speed: 0
   lifeTime: 6
   destroyOnImpact: 0
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
   isMultishot: 0
   amountOfInstances: 0
   spreadMax: 0

@@ -25,7 +25,6 @@ public class EnemiesInSceneController : MonoBehaviour
                 {
                     SetupManager.instance.SpawnInEnemy(enemy.transform.position, enemy.gameObject.name);
                 }
-
             }
         }
     }

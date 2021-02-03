@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OrcSpear
   m_EditorClassIdentifier: 
   enemyName: Orc Spear
-  maxHealth: 5
+  maxHealth: 50
   moveSpeed: 1.8
   min_offset: 0.4
   max_offset: -0.4

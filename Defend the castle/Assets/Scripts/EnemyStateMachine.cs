@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyStateMachine : MonoBehaviour
 {
+    private EnemyManager manager;
+
     private List<EnemyState> enemyStates = new List<EnemyState>();
 
     private EnemyState currentState;
@@ -16,7 +18,7 @@ public class EnemyStateMachine : MonoBehaviour
     void Start()
     {
         SetupEnemyStateList();
-
+        manager = GetComponentInParent<EnemyManager>();
         currentState = enemyStates[0];
         currentState.StartState();
     }
@@ -32,11 +34,16 @@ public class EnemyStateMachine : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        
-        //Update the current state
-        currentState.UpdateState();
-        //Check for if we move on to the next state
-        CheckForCurrentStateEnd();
+        if (PhotonNetwork.IsMasterClient || !GameData.instance.Multiplayer)
+        {
+            if (!manager.EnemyHealth.IsDeath)
+            {
+                //Update the current state
+                currentState.UpdateState();
+                //Check for if we move on to the next state
+                CheckForCurrentStateEnd();
+            }
+        }
     }
 
     private void CheckForCurrentStateEnd()

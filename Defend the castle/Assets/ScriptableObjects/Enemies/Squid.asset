@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Squid
   m_EditorClassIdentifier: 
   enemyName: Squid
-  maxHealth: 4
+  maxHealth: 40
   moveSpeed: 1
   min_offset: -0.4
   max_offset: 0.4

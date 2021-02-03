@@ -836,33 +836,9 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
-    - target: {fileID: 671300642410863959, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: 04da1829aaaafef44a3f1114a4ca099c, type: 2}
-    - target: {fileID: 671300642410863959, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: dashPower
-      value: 175
-      objectReference: {fileID: 0}
-    - target: {fileID: 671300642410863959, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: dashTime
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 830375595196480549, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: 33913abf124ac05408cf094980ff88c0, type: 2}
     - target: {fileID: 2836222347658404474, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4462580510111503669, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: stats
-      value: 
-      objectReference: {fileID: 11400000, guid: dd8a6c1707f89b64cb695fb09a4be556, type: 2}
-    - target: {fileID: 4462580510111503669, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
-      propertyPath: shieldMaxUpTime
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5453124199310418307, guid: db3358603e16da0488bbc51dd69904a5, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1221,6 +1197,7 @@ GameObject:
   - component: {fileID: 1406206129}
   - component: {fileID: 1406206128}
   - component: {fileID: 1406206127}
+  - component: {fileID: 1406206130}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1293,6 +1270,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1406206130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406206126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1460333298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,23 +1807,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
       propertyPath: GameScenes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
-      propertyPath: GameScenes.Array.data[0]
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
-      propertyPath: GameScenes.Array.data[1]
+      propertyPath: GameScenes.Array.data[0]
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
-      propertyPath: GameScenes.Array.data[2]
+      propertyPath: GameScenes.Array.data[1]
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
-      propertyPath: GameScenes.Array.data[3]
+      propertyPath: GameScenes.Array.data[2]
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
+      propertyPath: GameScenes.Array.data[3]
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5991132036910767483, guid: c69842f55121f0a48b59641ccc942b56, type: 3}
+      propertyPath: GameScenes.Array.data[4]
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c69842f55121f0a48b59641ccc942b56, type: 3}

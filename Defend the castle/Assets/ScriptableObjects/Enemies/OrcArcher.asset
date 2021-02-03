@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: OrcArcher
   m_EditorClassIdentifier: 
   enemyName: Orc archer
-  maxHealth: 3
+  maxHealth: 30
   moveSpeed: 1
   min_offset: -0.4
   max_offset: 0.4

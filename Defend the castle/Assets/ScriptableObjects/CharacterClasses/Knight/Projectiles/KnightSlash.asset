@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnightSlash
   m_EditorClassIdentifier: 
   projectileName: Slash
-  damage: 1
+  damage: 10
   speed: 2
   lifeTime: 0.4
   destroyOnImpact: 1

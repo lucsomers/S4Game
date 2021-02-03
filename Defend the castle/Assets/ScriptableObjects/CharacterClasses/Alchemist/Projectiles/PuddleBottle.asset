@@ -18,8 +18,15 @@ MonoBehaviour:
   lifeTime: 0.8
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 1
   spawnObjectAtCollision: 1
   projectileStatsToSpawn: {fileID: 11400000, guid: 1bd8172d9878b7e4e9a8be424aa4e13f, type: 2}

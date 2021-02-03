@@ -16,9 +16,8 @@ MonoBehaviour:
   classInfo: A class that uses potions to manipulate the battlefield and wreck havoc
     within enemy lines
   classTag: Alchemist
-  attackSpeed: 1
   moveSpeed: 85
-  baseHealth: 8
+  baseHealth: 80
   ability1: {fileID: 11400000, guid: 46cdbdfe25b0d7b4f848fae3fff6376a, type: 2}
   ability2: {fileID: 11400000, guid: c0eaafaede6769345a706eabecfc1520, type: 2}
   ability3: {fileID: 11400000, guid: 9529c0dd712a69c4bb648f2670ca5bd2, type: 2}

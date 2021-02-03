@@ -29,7 +29,7 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 
     public override void OnConnectedToMaster()
     {
-            PhotonNetwork.AutomaticallySyncScene = true;
+       
 
         stillConnectingSign.SetActive(false);
 
@@ -43,6 +43,8 @@ public class CreateRoom : MonoBehaviourPunCallbacks
     {
         base.OnJoinedRoom();
 
+        PhotonNetwork.AutomaticallySyncScene = true;
+        
         if (PhotonNetwork.IsMasterClient)
         {
             PlayerPrefs.SetString("RoomCode", roomCode.ToString());

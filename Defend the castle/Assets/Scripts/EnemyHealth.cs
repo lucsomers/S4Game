@@ -1,8 +1,11 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHealth : MonoBehaviourPunCallbacks
 {
+    private const float animationWaitTime = 1f;
+
     private EnemyManager enemyController;
 
     private int currentEnemyHealth = 0;
@@ -10,7 +13,10 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
 
     private PhotonView PV;
 
-    private void Start()
+    [HideInInspector]
+    public bool IsDeath = false;
+
+    public void Start()
     {
         enemyController = GetComponentInParent<EnemyManager>();
 
@@ -22,7 +28,7 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
 
     public void HealEnemy(int amount)
     {
-        if (GameData.instance.Multiplayer)
+        if (GameData.instance.Multiplayer && PV.IsMine)
         {
             currentEnemyHealth += amount;
             PV.RPC("HealEnemyRPC", RpcTarget.All, currentEnemyHealth);
@@ -46,6 +52,8 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     [PunRPC]
     public void DealDamageRPC(int amount)
     {
+        enemyController.EnemyAnimator.Damaged();
+
         currentEnemyHealth = amount;
 
         CheckDeath();
@@ -53,7 +61,7 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
 
     public void DealDamage(int amount)
     {
-        if (GameData.instance.Multiplayer)
+        if (GameData.instance.Multiplayer && PV.IsMine)
         {
             PV.RPC("DealDamageRPC", RpcTarget.All, currentEnemyHealth - amount);
         }
@@ -67,12 +75,24 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     {
         if (currentEnemyHealth <= 0)
         {
+            enemyController.EnemyAnimator.Death();
             EnemyDeath();
         }
     }
 
-    private void EnemyDeath()
+    public virtual void EnemyDeath()
     {
+        IsDeath = true;
+
+        if (gameObject.activeSelf)
+        {
+            StartCoroutine(AnimationDelay());
+        }
+    }
+
+    private IEnumerator AnimationDelay()
+    {
+        yield return new WaitForSeconds(animationWaitTime);
         enemyController.gameObject.SetActive(false);
     }
 
@@ -89,6 +109,6 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         }
     }
 
-    public int CurrentEnemyHealth { get => currentEnemyHealth; private set => currentEnemyHealth = value; }
+    public int CurrentEnemyHealth { get => currentEnemyHealth; set => currentEnemyHealth = value; }
     public int MaxEnemyHealth { get => maxEnemyHealth; private set => maxEnemyHealth = value; }
 }

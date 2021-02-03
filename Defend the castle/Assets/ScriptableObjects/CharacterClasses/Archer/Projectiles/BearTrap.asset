@@ -13,13 +13,20 @@ MonoBehaviour:
   m_Name: BearTrap
   m_EditorClassIdentifier: 
   projectileName: Bear trap
-  damage: 3
+  damage: 30
   speed: 0
   lifeTime: 5
   destroyOnImpact: 1
   ignoresWalls: 0
-  isHealing: 0
   targetAbleTags: Enemy
+  isHealing: 0
+  isSpeedBuff: 0
+  isMultishot: 0
+  amountOfInstances: 0
+  spreadMax: 0
+  spreadMin: 0
+  isAOE: 0
+  aoeSize: 0.1
   spawnsObjectAtEndOfLifetime: 0
   spawnObjectAtCollision: 0
   projectileStatsToSpawn: {fileID: 0}

@@ -33,9 +33,12 @@ public class PlayerNetworkCalls : MonoBehaviourPunCallbacks
         {
             playerController.PlayerNetwork.SetClass(selectedClassName);
 
+            GameScenesManager.instance.AmountOfPlayersInGame = 2;
+
             if (!pv.IsMine)
             {
                 playerController.PlayerClass.ChangePlayerClass(ClassManager.instance.GetStartingClass(classToChangeTo));
+                playerController.LightObject.SetActive(false);
             }
         }
     }

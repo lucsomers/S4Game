@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,29 +25,41 @@ public class GameScenesManager : MonoBehaviour
     private int currentlyLoadedScene;
 
     private List<int> alreadyLoadedScenes = new List<int>();
+    private bool firstTime = true;
 
     //TODO: Make this go up when game start so we know how many people are in game 
-    private int amountOfPlayersInGame = 1;
+    private int amountOfPlayersInGame = 0;
+
+    private void Start()
+    {
+        if (!GameData.instance.Multiplayer)
+        {
+            amountOfPlayersInGame = 1;
+        }
+    }
 
     public void LoadNextScene()
     {
-        int indexToLoad = 0;
-
-        for (int i = 0; i < 100; i++)
+        if (PhotonNetwork.IsMasterClient || !GameData.instance.Multiplayer)
         {
-            indexToLoad = GameScenes[Random.Range(0, GameScenes.Count)];
+            int indexToLoad = 0;
 
-            if (!alreadyLoadedScenes.Contains(indexToLoad))
+            if (!firstTime)
             {
-                break;
+                indexToLoad = GameScenes[Random.Range(0, GameScenes.Count)];
             }
+            else
+            {
+                firstTime = false;
+                indexToLoad = GameScenes[0];
+            }
+
+            currentlyLoadedScene = indexToLoad;
+
+            alreadyLoadedScenes.Add(indexToLoad);
+
+            SceneTransition.instance.LoadScene(indexToLoad);
         }
-
-        currentlyLoadedScene = indexToLoad;
-
-        alreadyLoadedScenes.Add(indexToLoad);
-
-        SceneTransition.instance.LoadScene(indexToLoad);
     }
 
     public int AmountOfPlayersInGame { get => amountOfPlayersInGame; set => amountOfPlayersInGame = value; }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Cleave
   m_EditorClassIdentifier: 
   projectileName: Cleave
-  damage: 2
+  damage: 20
   speed: 2
   lifeTime: 0.4
   destroyOnImpact: 0

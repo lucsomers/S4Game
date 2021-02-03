@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlackKnight
   m_EditorClassIdentifier: 
   enemyName: BlackKnight
-  maxHealth: 15
+  maxHealth: 150
   moveSpeed: 0.8
   min_offset: -0.3
   max_offset: 0.3
