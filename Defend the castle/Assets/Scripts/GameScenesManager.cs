@@ -53,7 +53,7 @@ public class GameScenesManager : MonoBehaviour
                 firstTime = false;
                 indexToLoad = GameScenes[0];
             }
-
+            
             currentlyLoadedScene = indexToLoad;
 
             alreadyLoadedScenes.Add(indexToLoad);

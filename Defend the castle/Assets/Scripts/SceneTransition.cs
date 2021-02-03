@@ -46,7 +46,14 @@ public class SceneTransition : MonoBehaviour
 
         if (GameData.instance.Multiplayer)
         {
-            PhotonNetwork.LoadLevel(sceneToLoadName);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LoadLevel(sceneToLoadName);
+            }
+            else
+            {
+                SceneManager.LoadScene(sceneToLoadName);
+            }
         }
         else
         {

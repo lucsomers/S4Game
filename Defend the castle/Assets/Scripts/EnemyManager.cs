@@ -21,6 +21,8 @@ public class EnemyManager : MonoBehaviour
 
     private PhotonView pv;
 
+    private bool isVisible = true;
+
     private void Awake()
     {
         enemyHealth = GetComponent<EnemyHealth>();
@@ -55,13 +57,18 @@ public class EnemyManager : MonoBehaviour
 
     public void SetVisible(bool isVisible)
     {
-        if (GameData.instance.Multiplayer)
+        if (isVisible != this.isVisible)
         {
-            pv.RPC("SetVisibleRPC", RpcTarget.All, isVisible);
-        }
-        else
-        {
-            SetVisibleRPC(isVisible);
+            this.isVisible = isVisible;
+
+            if (GameData.instance.Multiplayer)
+            {
+                pv.RPC("SetVisibleRPC", RpcTarget.All, isVisible);
+            }
+            else
+            {
+                SetVisibleRPC(isVisible);
+            }
         }
     }
 

@@ -54,7 +54,9 @@ public class ProjectileManager : MonoBehaviour
 
     public void CreateProjectile(Vector3 startPosition, Vector3 target, ProjectileStats projectileStats)
     {
-        FireProjectile(startPosition, target, projectileStats);
+        Vector3 finalTarget = new Vector3(target.x, target.y, 0);
+
+        FireProjectile(startPosition, finalTarget, projectileStats);
 
         if (projectileStats.IsMultishot)
         {
@@ -67,7 +69,7 @@ public class ProjectileManager : MonoBehaviour
                 x_offset = GetDifferentRandomNumber(projectileStats, x_offset, i);
                 y_offset = GetDifferentRandomNumber(projectileStats, y_offset, i);
 
-                Vector3 newTarget = new Vector3(target.x + x_offset, target.y + y_offset, target.z);
+                Vector3 newTarget = new Vector3(target.x + x_offset, target.y + y_offset, 0);
 
                 FireProjectile(startPosition, newTarget, projectileStats);
             }
