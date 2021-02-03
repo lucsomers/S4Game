@@ -30,8 +30,10 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     {
         if (GameData.instance.Multiplayer && PV.IsMine)
         {
-            currentEnemyHealth += amount;
-            PV.RPC("HealEnemyRPC", RpcTarget.All, currentEnemyHealth);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PV.RPC("HealEnemyRPC", RpcTarget.All, currentEnemyHealth + amount);
+            }
         }
         else
         {
@@ -63,7 +65,10 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     {
         if (GameData.instance.Multiplayer && PV.IsMine)
         {
-            PV.RPC("DealDamageRPC", RpcTarget.All, currentEnemyHealth - amount);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PV.RPC("DealDamageRPC", RpcTarget.All, currentEnemyHealth - amount);
+            }
         }
         else
         {

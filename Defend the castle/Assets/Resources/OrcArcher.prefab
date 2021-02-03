@@ -147,6 +147,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7849511611625806733, guid: 9b163647cf4992a4e95bc193b8f83729, type: 3}
+      propertyPath: ObservedComponents.Array.data[1]
+      value: 
+      objectReference: {fileID: 5424207400009485239}
     - target: {fileID: 8036012171183493056, guid: 9b163647cf4992a4e95bc193b8f83729, type: 3}
       propertyPath: enemyController
       value: 
@@ -188,5 +192,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03485b3db755cff4dae8e073017c0fed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5424207400009485239 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2907532853837291519, guid: 9b163647cf4992a4e95bc193b8f83729, type: 3}
+  m_PrefabInstance: {fileID: 7142434532885763144}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

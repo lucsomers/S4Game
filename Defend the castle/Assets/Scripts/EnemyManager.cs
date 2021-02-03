@@ -55,6 +55,19 @@ public class EnemyManager : MonoBehaviour
 
     public void SetVisible(bool isVisible)
     {
+        if (GameData.instance.Multiplayer)
+        {
+            pv.RPC("SetVisibleRPC", RpcTarget.All, isVisible);
+        }
+        else
+        {
+            SetVisibleRPC(isVisible);
+        }
+    }
+
+    [PunRPC]
+    public void SetVisibleRPC(bool isVisible)
+    {
         spriteRenderer.enabled = isVisible;
 
         foreach (Image healthbar in healthbars)
