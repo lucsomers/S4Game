@@ -13,14 +13,21 @@ public class GameScenesManager : MonoBehaviour
     {
         DontDestroyOnLoad(this);
 
-        if (instance == null || instance != this)
+        if (instance == null)
         {
             instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
     #endregion
 
     [SerializeField] private List<int> GameScenes = new List<int>();
+    [SerializeField] private int UpgradeSceneIndex;
+
+    private int amountOfLevelsCompleted = 0;
 
     private int currentlyLoadedScene;
 
@@ -29,6 +36,7 @@ public class GameScenesManager : MonoBehaviour
 
     //TODO: Make this go up when game start so we know how many people are in game 
     private int amountOfPlayersInGame = 0;
+    private bool inUpgradeScene = true;
 
     private void Start()
     {
@@ -36,6 +44,8 @@ public class GameScenesManager : MonoBehaviour
         {
             amountOfPlayersInGame = 1;
         }
+
+        inUpgradeScene = true;
     }
 
     public void LoadNextScene()
@@ -44,14 +54,25 @@ public class GameScenesManager : MonoBehaviour
         {
             int indexToLoad = 0;
 
-            if (!firstTime)
+            if (!inUpgradeScene)
+            {
+                //We have upgraded so we move on to next scene
+                inUpgradeScene = true;
+                indexToLoad = UpgradeSceneIndex;
+                amountOfLevelsCompleted++;
+            }
+            else if (!firstTime)
             {
                 indexToLoad = GameScenes[Random.Range(0, GameScenes.Count)];
+                //next scene should be upgrade scene
+                inUpgradeScene = false;
             }
             else
             {
                 firstTime = false;
                 indexToLoad = GameScenes[0];
+                //Next scene should be upgrade scene
+                inUpgradeScene = false;
             }
             
             currentlyLoadedScene = indexToLoad;
@@ -63,4 +84,5 @@ public class GameScenesManager : MonoBehaviour
     }
 
     public int AmountOfPlayersInGame { get => amountOfPlayersInGame; set => amountOfPlayersInGame = value; }
+    public int AmountOfLevelsCompleted { get => amountOfLevelsCompleted; private set => amountOfLevelsCompleted = value; }
 }

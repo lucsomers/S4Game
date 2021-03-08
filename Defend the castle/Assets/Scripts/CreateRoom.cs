@@ -23,14 +23,27 @@ public class CreateRoom : MonoBehaviourPunCallbacks
         {
             roomCode = getRandomRoomCode();
 
-            PhotonNetwork.CreateRoom(roomCode.ToString());
+            Photon.Realtime.RoomOptions options = new Photon.Realtime.RoomOptions();
+            options.MaxPlayers = 2;
+
+            PhotonNetwork.CreateRoom(roomCode.ToString(),options);
         }
+    }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        base.OnCreateRoomFailed(returnCode, message);
+        CreateARoom();
     }
 
     public override void OnConnectedToMaster()
     {
-       
+        StartCoroutine(ConnectionWait());
+    }
 
+    private IEnumerator ConnectionWait()
+    {
+        yield return new WaitForSeconds(4);
         stillConnectingSign.SetActive(false);
 
         foreach (GameObject gameObject in networkObjects)

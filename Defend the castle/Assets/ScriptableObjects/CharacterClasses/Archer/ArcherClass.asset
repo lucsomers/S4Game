@@ -18,9 +18,11 @@ MonoBehaviour:
   classTag: Archer
   moveSpeed: 100
   baseHealth: 50
+  attackDelay: 0.5
   ability1: {fileID: 11400000, guid: bc8a581324293c146bd4fc42b291d33a, type: 2}
   ability2: {fileID: 11400000, guid: 215c9f625160a43468ca090a8c26c7ec, type: 2}
   ability3: {fileID: 11400000, guid: 758eb759345e96a43a82a871dd68cfa4, type: 2}
   primaryAttack: {fileID: 11400000, guid: 403631a5cc18fee428f844c544e62e3a, type: 2}
   secondaryAttack: {fileID: 11400000, guid: 7e495b810e145d74fa709ea27c8bbbf0, type: 2}
   characterSprite: {fileID: 21300000, guid: 561a26092fa218f479a39c34d1925812, type: 3}
+  animator: {fileID: 9100000, guid: 85c00d7c1947b0e4a87968ec6f69f4f2, type: 2}

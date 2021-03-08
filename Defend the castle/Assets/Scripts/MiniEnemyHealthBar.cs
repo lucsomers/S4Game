@@ -16,9 +16,9 @@ public class MiniEnemyHealthBar : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (slider.maxValue != enemyController.Stats.MaxHealth)
+        if (slider.maxValue != enemyController.EnemyScaler.GetEnemyMaxHealth(enemyController.Stats.MaxHealth))
         {
-            slider.maxValue = enemyController.Stats.MaxHealth;
+            slider.maxValue = enemyController.EnemyScaler.GetEnemyMaxHealth(enemyController.Stats.MaxHealth);
             slider.value = slider.maxValue;
         }
 

@@ -70,7 +70,7 @@ public class AttackPlayerState : EnemyState
     {
         if (Manager.CurrentCooldown == 0)
         {
-            Manager.CurrentCooldown = Manager.Stats.AttackSpeed;
+            Manager.CurrentCooldown = Manager.EnemyScaler.GetEnemyAttackSpeed((float)Manager.Stats.AttackSpeed);
 
             Vector3 Target = CalculateAimOfset();
 

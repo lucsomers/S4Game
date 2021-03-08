@@ -10,6 +10,7 @@ public class ClassStats : ScriptableObject
     [Header("Stats")]
     [SerializeField] private float moveSpeed;
     [SerializeField] private int baseHealth;
+    [SerializeField] private float attackDelay;
     [Header("Abilities")]
     [SerializeField] private AbilityStats ability1;
     [SerializeField] private AbilityStats ability2;
@@ -18,6 +19,7 @@ public class ClassStats : ScriptableObject
     [SerializeField] private AbilityStats secondaryAttack;
     [Header("Image")]
     [SerializeField] private Sprite characterSprite;
+    [SerializeField] private RuntimeAnimatorController animator;
 
     public string ClassName { get => className; private set => className = value; }
     public string ClassInfo { get => classInfo; private set => classInfo = value; }
@@ -30,4 +32,6 @@ public class ClassStats : ScriptableObject
     public AbilityStats SecondaryAttack { get => secondaryAttack; private set => secondaryAttack = value; }
     public Sprite CharacterSprite { get => characterSprite; private set => characterSprite = value; }
     public int BaseHealth { get => baseHealth; private set => baseHealth = value; }
+    public RuntimeAnimatorController Animator { get => animator; private set => animator = value; }
+    public float AttackDelay { get => attackDelay; private set => attackDelay = value; }
 }

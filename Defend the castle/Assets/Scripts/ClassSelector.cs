@@ -35,6 +35,9 @@ public class ClassSelector : MonoBehaviour
     [SerializeField] private Image AbilityPrimaryIcon;
     [SerializeField] private Image AbilitySecondaryIcon;
 
+    [Header("Multiplayer")]
+    [SerializeField] private Image OtherClientSelectedClass;
+
     private int currentClassIndex = 0;
     private int lastIndexInList = 0;
 
@@ -43,8 +46,6 @@ public class ClassSelector : MonoBehaviour
         lastIndexInList = availableClassStats.Count - 1;
         UpdateSelectedClass();
     }
-
-    public ClassStats CurrentClass { get => availableClassStats[currentClassIndex]; }
 
     public void PreviousClass()
     {
@@ -96,5 +97,33 @@ public class ClassSelector : MonoBehaviour
         Ability3Icon.sprite = stats.Ability3.Icon;
         AbilityPrimaryIcon.sprite = stats.PrimaryAttack.Icon;
         AbilitySecondaryIcon.sprite = stats.SecondaryAttack.Icon;
+
+        Locker.instance.UpdateLockedState(stats);
     }
+
+    public void UnlockSelectedClass()
+    {
+        int playerMoney = PlayerPrefs.GetInt("Money");
+
+        if (playerMoney >= Locker.ClassUnlockCost)
+        {
+            playerMoney -= Locker.ClassUnlockCost;
+
+            PlayerPrefs.SetInt("Money", playerMoney);
+            PlayerPrefs.Save(); 
+
+            Locker.instance.UnlockClass(CurrentClass);
+        }
+    }
+
+    public void SetOtherClass(int classIndex)
+    {
+        ClassStats stats = availableClassStats[classIndex];
+
+        OtherClientSelectedClass.sprite = stats.CharacterSprite;
+        OtherClientSelectedClass.color = Color.white;
+    }
+
+    public ClassStats CurrentClass { get => availableClassStats[currentClassIndex]; }
+    public int CurrentClassIndex { get => currentClassIndex; }
 }

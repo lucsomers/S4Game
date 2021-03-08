@@ -15,11 +15,12 @@ public class PlayerController : MonoBehaviourPunCallbacks
 
     private PlayerMovement playerMovement;
     private PlayerNetworkCalls playerNetwork;
+    private PlayerAnimator playerAnimator;
     private PlayerTargetPoints playerTargetPoints;
     private PlayerInput playerInput;
     private PlayerCollision playerCollision;
     private PlayerHealth playerHealth;
-
+    private PlayerMoney playerMoney;
     private PlayerPrimaryAttack playerPrimaryAttack;
     private PlayerSecondaryAttack playerSecondaryAttack;
     private PlayerAbility1 playerAbility1;
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviourPunCallbacks
         playerHealth = GetComponentInChildren<PlayerHealth>();
         ui_update = GetComponentInChildren<UI_Update>();
         playerBuff = GetComponentInChildren<PlayerBuff>();
+        playerMoney = GetComponentInChildren<PlayerMoney>();
 
         playerPrimaryAttack = GetComponentInChildren<PlayerPrimaryAttack>();
         playerSecondaryAttack = GetComponentInChildren<PlayerSecondaryAttack>();
@@ -50,6 +52,8 @@ public class PlayerController : MonoBehaviourPunCallbacks
         playerAbility3 = GetComponentInChildren<PlayerAbility3>();
 
         playerNetwork = GetComponent<PlayerNetworkCalls>();
+
+        playerAnimator = GetComponentInChildren<PlayerAnimator>();
     }
 
     private void Start()
@@ -78,4 +82,6 @@ public class PlayerController : MonoBehaviourPunCallbacks
     public PlayerBuff PlayerBuff { get => playerBuff; private set => playerBuff = value; }
     public GameObject ShieldObject { get => shieldObject; private set => shieldObject = value; }
     public GameObject LightObject { get => lightObject; private set => lightObject = value; }
+    public PlayerMoney PlayerMoney { get => playerMoney; private set => playerMoney = value; }
+    public PlayerAnimator PlayerAnimator { get => playerAnimator; private set => playerAnimator = value; }
 }

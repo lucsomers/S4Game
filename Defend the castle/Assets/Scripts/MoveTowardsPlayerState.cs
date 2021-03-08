@@ -58,12 +58,16 @@ public class MoveTowardsPlayerState : EnemyState
             playerOutSideOfDetectionRange = true;
         }
 
+        float finalMoveSpeed = Manager.EnemyScaler.GetEnemyMoveSpeed((float)Manager.Stats.MoveSpeed);
+
         //Check if we can see player
         if (inSight)
         {
             //Move enemy towards playerPos because we see player within range
             closestNode = null;
-            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, pointToMoveTowards.position, Manager.Stats.MoveSpeed * Time.fixedDeltaTime);
+
+
+            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, pointToMoveTowards.position, finalMoveSpeed * Time.fixedDeltaTime);
         }
         else
         {
@@ -73,7 +77,7 @@ public class MoveTowardsPlayerState : EnemyState
                 closestNode = AINodeManager.instance.GetClosesedNode(currentPlayerFocus.transform);
             }
 
-            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, closestNode.position, Manager.Stats.MoveSpeed * Time.fixedDeltaTime);
+            posToMoveTo = Vector3.MoveTowards(Manager.transform.position, closestNode.position, finalMoveSpeed * Time.fixedDeltaTime);
         }
 
         posToMoveTo = new Vector3(posToMoveTo.x, posToMoveTo.y, 0);

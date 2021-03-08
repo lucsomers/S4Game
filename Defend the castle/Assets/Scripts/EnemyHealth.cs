@@ -20,7 +20,7 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
     {
         enemyController = GetComponentInParent<EnemyManager>();
 
-        maxEnemyHealth = enemyController.Stats.MaxHealth;
+        maxEnemyHealth = enemyController.EnemyScaler.GetEnemyMaxHealth((float)enemyController.Stats.MaxHealth);
         currentEnemyHealth = maxEnemyHealth;
 
         PV = GetComponent<PhotonView>();
@@ -92,6 +92,18 @@ public class EnemyHealth : MonoBehaviourPunCallbacks
         if (gameObject.activeSelf)
         {
             StartCoroutine(AnimationDelay());
+
+            if (GameData.instance.Multiplayer)
+            {
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    EnemiesInSceneController.instance.EnemyInLevelCount--;
+                }
+            }
+            else
+            {
+                EnemiesInSceneController.instance.EnemyInLevelCount--;
+            }
         }
     }
 

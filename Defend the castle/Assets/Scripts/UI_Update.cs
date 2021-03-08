@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,8 @@ public class UI_Update : MonoBehaviour
     [SerializeField] private Slider abilityPrimarySlider;
     [SerializeField] private Slider abilitySecondarySlider;
 
+    [Header("Moneys")]
+    [SerializeField] private TMP_Text moneyText;
     private PlayerController playerController;
     private ClassStats currentPlayerClassStats;
 
@@ -57,6 +60,8 @@ public class UI_Update : MonoBehaviour
 
         //CharacterSprite
         PlayerCharacter.sprite = currentPlayerClassStats.CharacterSprite;
+
+        UpdateMoneyText();
     }
 
     public void UpdateUI()
@@ -87,5 +92,10 @@ public class UI_Update : MonoBehaviour
                 PlayerCharacter.color = new Color(PlayerCharacter.color.r, PlayerCharacter.color.g, PlayerCharacter.color.b, 1);
             }
         }
+    }
+
+    public void UpdateMoneyText()
+    {
+        moneyText.SetText(PlayerPrefs.GetInt("Money").ToString());
     }
 }

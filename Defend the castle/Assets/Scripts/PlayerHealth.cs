@@ -18,15 +18,21 @@ public class PlayerHealth : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         PV = GetComponent<PhotonView>();
 
-        maxPlayerHealth = playerController.PlayerClass.CurrentPlayerClass.classStats.BaseHealth;
+        UpdateMaxHealth();
+
         currentPlayerHealth = maxPlayerHealth;
+    }
+
+    public void UpdateMaxHealth()
+    {
+        maxPlayerHealth = ModifierManager.instance.GetModifiedHealth(playerController.PlayerClass.CurrentPlayerClass.classStats.BaseHealth);
     }
 
     public void HealPlayer(int amount)
     {
         if (GameData.instance.Multiplayer)
         {
-            if (PV.IsMine)
+            if (PhotonNetwork.IsMasterClient)
             {
                 PV.RPC("HealPlayerRPC", RpcTarget.All, currentPlayerHealth + amount);
             }
@@ -41,7 +47,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (GameData.instance.Multiplayer)
         {
-            if (PV.IsMine)
+            if (PhotonNetwork.IsMasterClient)
             {
                 PV.RPC("DealDamageRPC", RpcTarget.All, currentPlayerHealth - amount);
             }
@@ -67,6 +73,8 @@ public class PlayerHealth : MonoBehaviour
     {
         currentPlayerHealth = amount;
 
+        playerController.PlayerAnimator.Damaged();
+
         CheckDeath();
     }
 
@@ -84,13 +92,34 @@ public class PlayerHealth : MonoBehaviour
         {
             if (PhotonNetwork.IsMasterClient)
             {
-                SceneTransition.instance.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                PV.RPC("EndGame", RpcTarget.All);
             }
         }
         else
         {
+            Destroy(GameScenesManager.instance);
+            Destroy(ModifierManager.instance);
+            Destroy(GameData.instance);
             SceneTransition.instance.LoadScene(0);
         }
+    }
+
+    [PunRPC]
+    public void EndGame()
+    {
+        Destroy(GameScenesManager.instance);
+        Destroy(ModifierManager.instance);
+        Destroy(GameData.instance);
+        SceneTransition.instance.LoadScene(0);
+        StartCoroutine(Disconnect());
+    }
+
+    IEnumerator Disconnect()
+    {
+        yield return new WaitForSeconds(3);
+
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
     }
 
     private void NormalizeHealthValue()

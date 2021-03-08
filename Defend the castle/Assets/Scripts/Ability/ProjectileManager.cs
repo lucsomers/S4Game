@@ -8,12 +8,17 @@ public class ProjectileManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != this || instance == null)
+        DontDestroyOnLoad(this);
+        
+        if (instance == null)
         {
             instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
 
-        DontDestroyOnLoad(this.gameObject);
     }
     #endregion
 

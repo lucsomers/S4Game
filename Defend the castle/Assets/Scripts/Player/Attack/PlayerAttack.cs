@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private const float minimumCooldown = 0.2f;
+
     private float currentCooldown;
 
     public virtual void Update()
@@ -26,7 +28,32 @@ public class PlayerAttack : MonoBehaviour
     {
         ability.HandleAbility(playerController);
 
-        currentCooldown = ability.Stats.Cooldown;
+        currentCooldown = getModifiedCooldown(ability);
+    }
+
+    private float getModifiedCooldown(Ability ability)
+    {
+        float toReturn = ability.Stats.Cooldown;
+
+        switch (ability.Stats.AbilityLetter)
+        {
+            case AbilityLetter.Q_1:
+            case AbilityLetter.W_2:
+            case AbilityLetter.F_3:
+                toReturn = ModifierManager.instance.GetModifiedCooldown(ability.CurrentCooldown);
+                break;
+            case AbilityLetter.Primary:
+            case AbilityLetter.Secondary:
+                toReturn = ModifierManager.instance.GetModifiedAttackSpeed(ability.CurrentCooldown);
+                break;
+        }
+
+        if (toReturn < minimumCooldown)
+        {
+            toReturn = minimumCooldown;
+        }
+
+        return toReturn;
     }
 
     public float CurrentCooldown { get => currentCooldown; private set => currentCooldown = value; }

@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour
     private EnemyHealth enemyHealth;
     private SpriteRenderer spriteRenderer;
     private EnemyAnimator enemyAnimator;
+    private EnemyScaler enemyScaler;
 
     private PhotonView pv;
 
@@ -28,6 +29,8 @@ public class EnemyManager : MonoBehaviour
         enemyHealth = GetComponent<EnemyHealth>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         enemyAnimator = GetComponentInChildren<EnemyAnimator>();
+        enemyScaler = GetComponentInChildren<EnemyScaler>();
+
         pv = GetComponent<PhotonView>();
     }
 
@@ -109,4 +112,5 @@ public class EnemyManager : MonoBehaviour
 
     public PhotonView PV { get => pv; private set => pv = value; }
     public EnemyAnimator EnemyAnimator { get => enemyAnimator; set => enemyAnimator = value; }
+    public EnemyScaler EnemyScaler { get => enemyScaler; set => enemyScaler = value; }
 }

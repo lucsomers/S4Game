@@ -9,8 +9,16 @@ public class ProjectileAbility : Ability
 
     public override void HandleAbility(PlayerController player)
     {
+        player.PlayerAnimator.Attack();
+
         base.HandleAbility(player);
 
+        StartCoroutine(DelayedAttack(player));
+    }
+
+    private IEnumerator DelayedAttack(PlayerController player)
+    {
+        yield return new WaitForSeconds(player.PlayerClass.CurrentPlayerClass.classStats.AttackDelay);
         FireProjectile(player);
     }
 

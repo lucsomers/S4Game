@@ -5,6 +5,25 @@ using UnityEngine;
 
 public class EnemiesInSceneController : MonoBehaviour
 {
+    #region Singleton
+    public static EnemiesInSceneController instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
+    [HideInInspector]
+    public int EnemyInLevelCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +32,7 @@ public class EnemiesInSceneController : MonoBehaviour
             foreach (EnemyManager enemy in GetComponentsInChildren<EnemyManager>())
             {
                 enemy.SetVisible(false);
+                EnemyInLevelCount++;
             }
         }
         else
@@ -24,6 +44,7 @@ public class EnemiesInSceneController : MonoBehaviour
                 if (PhotonNetwork.IsMasterClient)
                 {
                     SetupManager.instance.SpawnInEnemy(enemy.transform.position, enemy.gameObject.name);
+                    EnemyInLevelCount++;
                 }
             }
         }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private const float maxMoveSpeed = 250;
+
     private PlayerController playerController;
 
     private float diagnalMovementLimiter = 0.7f;
@@ -42,6 +44,27 @@ public class PlayerMovement : MonoBehaviour
             if ((!isDashing && (playerController.PlayerNetwork.PV.IsMine || !GameData.instance.Multiplayer)))
             {
                 float movespeed = playerController.PlayerClass.CurrentPlayerClass.MoveSpeed;
+                movespeed = ModifierManager.instance.GetModifiedMoveSpeed(movespeed);
+
+                if (movespeed >= maxMoveSpeed)
+                {
+                    movespeed = maxMoveSpeed;
+                }
+
+                if (x_axis != 0)
+                {
+                    playerController.PlayerAnimator.IsMoving(true);
+                }
+                else if(y_axis != 0)
+                {
+                    playerController.PlayerAnimator.IsMoving(true);
+                }
+                else
+                {
+                    playerController.PlayerAnimator.IsMoving(false);
+                }
+
+
 
                 if (x_axis != 0 && y_axis != 0) // Check for diagonal movement
                 {

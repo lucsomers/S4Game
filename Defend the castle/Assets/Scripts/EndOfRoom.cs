@@ -15,13 +15,29 @@ public class EndOfRoom : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            if (firstime)
+            if (GameData.instance.Multiplayer)
             {
-                playersAtEnd = 0;
-                firstime = false;
-            }
+                if (PhotonNetwork.IsMasterClient)
+                {
+                    if (firstime)
+                    {
+                        playersAtEnd = 0;
+                        firstime = false;
+                    }
 
-            playersAtEnd += 1;
+                    playersAtEnd += 1;
+                }
+            }
+            else
+            {
+                if (firstime)
+                {
+                    playersAtEnd = 0;
+                    firstime = false;
+                }
+
+                playersAtEnd += 1;
+            }
         }
     }
 
@@ -33,7 +49,7 @@ public class EndOfRoom : MonoBehaviour
             {
                 if (!firstime)
                 {
-                    if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame)
+                    if (playersAtEnd >= GameScenesManager.instance.AmountOfPlayersInGame && EnemiesInSceneController.instance.EnemyInLevelCount <= 0)
                     {
                         if (!loadingNewLevel)
                         {
@@ -48,16 +64,34 @@ public class EndOfRoom : MonoBehaviour
         {
             if (playersAtEnd >= 1)
             {
-                GameScenesManager.instance.LoadNextScene();
+                if (!loadingNewLevel)
+                {
+                    loadingNewLevel = true;
+                    GameScenesManager.instance.LoadNextScene();
+                }
             }
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (GameData.instance.Multiplayer)
         {
-            playersAtEnd -= 1;
+            if (PhotonNetwork.IsMasterClient)
+            {
+                if (collision.CompareTag("Player"))
+                {
+                    playersAtEnd -= 1;
+                }
+            }
+        }
+        else
+        {
+            if (collision.CompareTag("Player"))
+            {
+                playersAtEnd -= 1;
+            }
+
         }
     }
 }
